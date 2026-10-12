@@ -10,6 +10,7 @@ PWA Android-first untuk membuat QR code URL, teks, WiFi, dan email. Semua data d
 - Unduh PNG dan Web Share API
 - Riwayat lokal dengan penghapusan data
 - PWA installable ke Home Screen Android
+- Tiga layar Android: Buat, Riwayat, dan Profil dengan bottom navigation
 - Offline cache melalui service worker
 - Halaman Kebijakan Privasi dan Ketentuan
 - GitHub Actions untuk GitHub Pages

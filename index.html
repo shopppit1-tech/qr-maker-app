@@ -1,52 +1,23 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#246bfe" />
-  <meta name="description" content="QR Maker gratis untuk membuat QR code URL, teks, WiFi, email, dan telepon." />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/icon.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#246bfe" /><meta name="description" content="QR Maker gratis untuk membuat QR code URL, teks, WiFi, dan email." />
+  <link rel="manifest" href="manifest.webmanifest" /><link rel="icon" href="icons/icon.svg" /><link rel="stylesheet" href="styles.css" />
   <title>QR Maker — Buat QR Code Gratis</title>
 </head>
 <body>
-  <header class="appbar">
-    <a class="brand" href="./" aria-label="QR Maker Beranda"><span class="brand-mark">▦</span><span>QR Maker</span></a>
-    <nav class="top-nav"><a href="#buat" class="active">Buat QR</a><a href="#riwayat">Riwayat</a><a href="privacy.html">Privasi</a></nav>
-    <button id="installBtn" class="icon-btn" hidden aria-label="Install aplikasi">⇩</button>
-  </header>
-
-  <main class="shell" id="buat">
-    <section class="hero"><div><p class="eyebrow">QR CODE GENERATOR</p><h1>Buat QR Code<br><span>lebih cepat.</span></h1><p class="hero-copy">Ubah link, teks, WiFi, email, atau nomor telepon menjadi QR code yang siap dibagikan.</p></div><div class="hero-orb" aria-hidden="true">▦</div></section>
-
-    <section class="workspace" aria-label="Generator QR code">
-      <div class="panel form-panel">
-        <div class="panel-head"><div><p class="eyebrow">LANGKAH 01</p><h2>Pilih konten</h2></div><span class="secure-pill">✓ Lokal & aman</span></div>
-        <div class="type-tabs" role="tablist">
-          <button class="type-tab active" data-type="url" role="tab">↗<span>URL</span></button>
-          <button class="type-tab" data-type="text" role="tab">T<span>Teks</span></button>
-          <button class="type-tab" data-type="wifi" role="tab">⌁<span>WiFi</span></button>
-          <button class="type-tab" data-type="email" role="tab">✉<span>Email</span></button>
-        </div>
-        <form id="qrForm">
-          <div id="fields" class="fields"></div>
-          <div class="form-actions"><button type="submit" class="primary-btn">Buat QR Code <span>→</span></button><button type="button" id="clearBtn" class="ghost-btn">Bersihkan</button></div>
-        </form>
-        <p class="microcopy">Tidak ada data yang dikirim ke server. Semua diproses di perangkat kamu.</p>
-      </div>
-
-      <div class="panel preview-panel">
-        <div class="panel-head"><div><p class="eyebrow">LANGKAH 02</p><h2>Preview QR</h2></div><span id="statusBadge" class="status-badge">Siap dipindai</span></div>
-        <div class="qr-stage"><canvas id="qrCanvas" width="640" height="640" aria-label="Preview QR code"></canvas><p id="qrCaption">Masukkan konten untuk membuat QR code</p></div>
-        <div class="custom-row"><label>Warna QR<input type="color" id="colorInput" value="#101828"></label><label>Ukuran<select id="sizeInput"><option value="320">320 px</option><option value="512" selected>512 px</option><option value="1024">1024 px</option></select></label></div>
-        <div class="form-actions"><button id="downloadBtn" class="primary-btn" disabled>↓ Unduh PNG</button><button id="shareBtn" class="secondary-btn" disabled>↗ Bagikan</button></div>
-      </div>
+  <header class="appbar"><a class="brand" href="./" aria-label="QR Maker Beranda"><span class="brand-mark">▦</span><span>QR Maker</span></a><div class="appbar-actions"><button id="installBtn" class="icon-btn" hidden aria-label="Install aplikasi">⇩</button><a class="icon-btn" href="privacy.html" aria-label="Pengaturan dan privasi">⚙</a></div></header>
+  <main class="app-main">
+    <section id="screen-buat" class="screen active" aria-labelledby="buatTitle">
+      <div class="hero"><div><p class="eyebrow">QR CODE GENERATOR</p><h1 id="buatTitle">Buat QR Code<br><span>lebih cepat.</span></h1><p class="hero-copy">Ubah link, teks, WiFi, atau email menjadi QR code yang siap dibagikan.</p></div><div class="hero-orb" aria-hidden="true">▦</div></div>
+      <section class="workspace" aria-label="Generator QR code"><div class="panel form-panel"><div class="panel-head"><div><p class="eyebrow">LANGKAH 01</p><h2>Pilih konten</h2></div><span class="secure-pill">✓ Lokal & aman</span></div><div class="type-tabs" role="tablist"><button class="type-tab active" data-type="url" role="tab">↗<span>URL</span></button><button class="type-tab" data-type="text" role="tab">T<span>Teks</span></button><button class="type-tab" data-type="wifi" role="tab">⌁<span>WiFi</span></button><button class="type-tab" data-type="email" role="tab">✉<span>Email</span></button></div><form id="qrForm"><div id="fields" class="fields"></div><div class="form-actions"><button type="submit" class="primary-btn">Buat QR Code <span>→</span></button><button type="button" id="clearBtn" class="ghost-btn">Bersihkan</button></div></form><p class="microcopy">Tidak ada data yang dikirim ke server. Semua diproses di perangkat kamu.</p></div><div class="panel preview-panel"><div class="panel-head"><div><p class="eyebrow">LANGKAH 02</p><h2>Preview QR</h2></div><span id="statusBadge" class="status-badge">Siap dipindai</span></div><div class="qr-stage"><canvas id="qrCanvas" width="640" height="640" aria-label="Preview QR code"></canvas><p id="qrCaption">Masukkan konten untuk membuat QR code</p></div><div class="custom-row"><label>Warna QR<input type="color" id="colorInput" value="#101828"></label><label>Ukuran<select id="sizeInput"><option value="320">320 px</option><option value="512" selected>512 px</option><option value="1024">1024 px</option></select></label></div><div class="form-actions"><button id="downloadBtn" class="primary-btn" disabled>↓ Unduh PNG</button><button id="shareBtn" class="secondary-btn" disabled>↗ Bagikan</button></div></div></section>
+      <div class="trust-grid"><div><strong>Offline-ready</strong><span>Tetap bisa dipakai setelah terinstal.</span></div><div><strong>Gratis selamanya</strong><span>Tanpa watermark dan batas pemakaian.</span></div><div><strong>Privasi utama</strong><span>Konten tidak meninggalkan perangkat.</span></div></div>
     </section>
-
-    <section id="riwayat" class="history-section"><div class="section-head"><div><p class="eyebrow">TERSIMPAN DI PERANGKAT</p><h2>Riwayat terbaru</h2></div><button id="clearHistoryBtn" class="text-btn">Hapus semua</button></div><div id="historyList" class="history-list"></div></section>
-    <section class="trust-grid"><div><strong>Offline-ready</strong><span>Tetap bisa dipakai setelah terinstal.</span></div><div><strong>Gratis selamanya</strong><span>Tanpa watermark dan batas pemakaian.</span></div><div><strong>Privasi utama</strong><span>Konten tidak meninggalkan perangkat.</span></div></section>
+    <section id="screen-riwayat" class="screen" aria-labelledby="riwayatTitle"><div class="screen-heading"><p class="eyebrow">TERSIMPAN DI PERANGKAT</p><h1 id="riwayatTitle">Riwayat QR</h1><p>Lihat dan gunakan kembali QR code yang pernah kamu buat.</p></div><div class="panel history-panel"><div class="section-head"><div><h2>Riwayat terbaru</h2><p class="muted">Maksimal 6 item tersimpan lokal.</p></div><button id="clearHistoryBtn" class="text-btn">Hapus semua</button></div><div id="historyList" class="history-list"></div></div><div class="empty-tip"><span>⌁</span><div><strong>Data tetap di perangkat</strong><p>Riwayat tidak dikirim ke server dan bisa dihapus kapan saja.</p></div></div></section>
+    <section id="screen-profil" class="screen" aria-labelledby="profilTitle"><div class="screen-heading"><p class="eyebrow">QR MAKER</p><h1 id="profilTitle">Profil & pengaturan</h1><p>Atur pengalaman QR Maker di perangkat kamu.</p></div><div class="profile-card"><div class="profile-avatar">▦</div><div><strong>QR Maker</strong><p>Generator QR privat dan gratis</p></div><span class="pro-pill">FREE</span></div><div class="settings-list"><a href="privacy.html" class="setting-item"><span class="setting-icon">⌕</span><span><strong>Kebijakan Privasi</strong><small>Bagaimana data kamu diproses</small></span><b>›</b></a><a href="terms.html" class="setting-item"><span class="setting-icon">✓</span><span><strong>Ketentuan Penggunaan</strong><small>Aturan penggunaan QR Maker</small></span><b>›</b></a><button id="profileInstallBtn" class="setting-item"><span class="setting-icon">⇩</span><span><strong>Install ke Home Screen</strong><small>Gunakan seperti aplikasi Android</small></span><b>›</b></button></div><div class="about-note"><strong>QR Maker v1.0.0</strong><span>Semua QR diproses lokal di perangkat kamu.</span></div></section>
   </main>
+  <nav class="bottom-nav" aria-label="Navigasi utama"><button class="nav-item active" data-screen="buat"><span>▦</span><b>Buat</b></button><button class="nav-item" data-screen="riwayat"><span>◷</span><b>Riwayat</b></button><button class="nav-item" data-screen="profil"><span>♙</span><b>Profil</b></button></nav>
   <footer><span>© 2026 QR Maker</span><span><a href="privacy.html">Kebijakan Privasi</a><a href="terms.html">Ketentuan</a></span></footer>
   <script src="assets/qrcode.js"></script><script src="app.js"></script>
 </body>
