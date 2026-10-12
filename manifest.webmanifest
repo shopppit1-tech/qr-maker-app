@@ -1,0 +1,1 @@
+{"name":"QR Maker — Buat QR Code","short_name":"QR Maker","description":"Generator QR code gratis yang cepat, privat, dan offline-ready.","start_url":"./","display":"standalone","background_color":"#f7f9fc","theme_color":"#246bfe","lang":"id-ID","orientation":"portrait-primary","icons":[{"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
