@@ -14,10 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Prepare static site
+        run: |
+          mkdir dist
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'play-store' --exclude 'README.md' --exclude '.gitignore' --exclude '.well-known-placeholder.txt' ./ dist/
       - name: Publish static site to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./dist
           publish_branch: gh-pages
-          exclude_assets: '.github,.git,play-store,README.md,.gitignore,.well-known-placeholder.txt'
