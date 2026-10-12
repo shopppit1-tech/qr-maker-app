@@ -1,0 +1,1 @@
+Buat folder .well-known setelah mendapat fingerprint SHA-256 dari keystore release TWA. Jangan mengisi assetlinks.json dengan fingerprint contoh.

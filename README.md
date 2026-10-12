@@ -1,0 +1,79 @@
+# QR Maker
+
+PWA Android-first untuk membuat QR code URL, teks, WiFi, dan email. Semua data diproses lokal di perangkat.
+
+## Fitur yang sudah tersedia
+
+- Generator QR URL, teks, WiFi, dan email
+- Preview QR real-time setelah submit
+- Pilihan warna dan ukuran PNG
+- Unduh PNG dan Web Share API
+- Riwayat lokal dengan penghapusan data
+- PWA installable ke Home Screen Android
+- Offline cache melalui service worker
+- Halaman Kebijakan Privasi dan Ketentuan
+- GitHub Actions untuk GitHub Pages
+
+## Jalankan lokal
+
+```bash
+python3 -m http.server 4173
+```
+
+Buka `http://localhost:4173`.
+
+## Deploy ke GitHub Pages
+
+1. Push branch `main` ke GitHub.
+2. Buka **Settings → Pages** pada repository.
+3. Pilih **GitHub Actions** sebagai Source.
+4. Workflow `.github/workflows/pages.yml` akan deploy otomatis setiap push.
+5. URL default: `https://USERNAME.github.io/REPOSITORY/`.
+
+## Menjadi aplikasi Play Store (TWA)
+
+GitHub Pages hanya menyediakan website/PWA. Google Play Store membutuhkan file **Android App Bundle (.aab)** dan listing Play Console. Cara yang disarankan untuk aplikasi PWA adalah Trusted Web Activity (TWA).
+
+### Prasyarat
+
+- Domain HTTPS final, bukan URL localhost
+- Android Studio atau Node.js
+- Akun Google Play Console
+- Nama paket unik, contoh `com.namamu.qrmaker`
+- Keystore signing yang disimpan aman dan dibackup
+- URL Kebijakan Privasi publik
+
+### Build AAB dengan Bubblewrap
+
+```bash
+npm install -g @bubblewrap/cli
+bubblewrap init --manifest https://USERNAME.github.io/REPOSITORY/manifest.webmanifest
+bubblewrap build
+```
+
+Bubblewrap akan meminta `packageId`, nama aplikasi, ikon, warna, dan detail signing. Simpan keystore dan password di tempat aman; jangan commit ke GitHub.
+
+Setelah build pertama, upload `assetlinks.json` yang dihasilkan Bubblewrap ke:
+
+```
+https://USERNAME.github.io/REPOSITORY/.well-known/assetlinks.json
+```
+
+Lalu jalankan `bubblewrap install` untuk tes pada perangkat Android. Pastikan link dibuka sebagai TWA tanpa address bar.
+
+## Checklist sebelum Play Store
+
+- [ ] Uji URL, teks, WiFi, dan email di beberapa perangkat Android.
+- [ ] Uji unduh PNG dan tombol bagikan.
+- [ ] Uji install PWA dan mode offline setelah reload.
+- [ ] Uji tautan kebijakan privasi dan ketentuan.
+- [ ] Siapkan ikon aplikasi 512×512 dan screenshot Android.
+- [ ] Lengkapi Data safety di Play Console secara jujur: versi ini tidak mengirim konten QR ke server dan tidak memakai akun/iklan/analytics.
+- [ ] Tulis deskripsi aplikasi tanpa klaim yang tidak dapat dibuktikan.
+- [ ] Tentukan target audience, rating konten, kategori, dan email kontak support.
+- [ ] Isi URL kebijakan privasi publik.
+- [ ] Buat AAB release, bukan APK debug.
+- [ ] Simpan keystore; jangan hilangkan karena dibutuhkan untuk update.
+- [ ] Ikuti persyaratan testing/review yang ditampilkan Play Console untuk akun kamu.
+
+> Status “siap pakai” berlaku untuk PWA di GitHub Pages. Persetujuan Play Store tetap diputuskan Google dan memerlukan akun, signing, metadata, testing, serta deklarasi kebijakan yang benar.
