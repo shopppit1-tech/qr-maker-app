@@ -7,3 +7,16 @@ footer{border-top:1px solid var(--line);max-width:1160px;margin:auto;padding:24p
 /* Touch-friendly mobile behavior: content may move, navigation stays fixed */
 @media(max-width:760px){html,body{overflow:auto;touch-action:pan-y}.app-main{overflow-y:auto;overflow-x:hidden}.screen{overflow-y:auto;overflow-x:hidden;touch-action:pan-y}.screen-buat{padding-bottom:92px}.bottom-nav{pointer-events:auto;touch-action:manipulation}.nav-item,.type-tab,button,a{touch-action:manipulation}}
 @media(max-width:760px){.hero{height:auto;min-height:142px;padding-top:12px;padding-bottom:14px;margin-bottom:0}.hero-copy{max-width:345px;line-height:1.35}.workspace{margin-top:0}.panel{overflow:visible}.form-panel,.preview-panel{height:auto;min-height:0}}
+
+/* Mobile: reserve room for the fixed navigation so the download actions remain reachable. */
+@media(max-width:760px){
+  .app-main{height:100dvh;min-height:0;padding:64px 0 0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .screen{height:auto;min-height:100%;overflow:visible}
+  #screen-buat{padding:0 15px calc(104px + env(safe-area-inset-bottom))}
+  .bottom-nav{bottom:calc(8px + env(safe-area-inset-bottom))}
+}
+
+@media(max-width:760px){
+  .hero{min-height:128px;padding-bottom:6px}
+  .preview-panel .qr-stage canvas{width:116px}
+}
