@@ -6,3 +6,4 @@ footer{border-top:1px solid var(--line);max-width:1160px;margin:auto;padding:24p
 .form-error{color:#b42318;background:#fef3f2;border:1px solid #fecdca;border-radius:10px;padding:9px 11px;font-size:11px;font-weight:600;margin:8px 0 0}.form-error[hidden]{display:none}
 /* Touch-friendly mobile behavior: content may move, navigation stays fixed */
 @media(max-width:760px){html,body{overflow:auto;touch-action:pan-y}.app-main{overflow-y:auto;overflow-x:hidden}.screen{overflow-y:auto;overflow-x:hidden;touch-action:pan-y}.screen-buat{padding-bottom:92px}.bottom-nav{pointer-events:auto;touch-action:manipulation}.nav-item,.type-tab,button,a{touch-action:manipulation}}
+@media(max-width:760px){.hero{height:auto;min-height:142px;padding-top:12px;padding-bottom:14px;margin-bottom:0}.hero-copy{max-width:345px;line-height:1.35}.workspace{margin-top:0}.panel{overflow:visible}.form-panel,.preview-panel{height:auto;min-height:0}}
