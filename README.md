@@ -1,16 +1,16 @@
 # QR Maker
 
-PWA Android-first untuk membuat QR code URL, teks, WiFi, dan email. Semua data diproses lokal di perangkat.
+PWA QR Maker dengan desain mobile yang diunggah pemilik repo. Membuat QR code URL, teks, WiFi, email, kontak, dan data lainnya; proses dilakukan lokal di perangkat.
 
 ## Fitur yang sudah tersedia
 
-- Generator QR URL, teks, WiFi, dan email
+- Generator QR URL, teks, WiFi, email, kontak, dan data lainnya
 - Preview QR real-time setelah submit
 - Pilihan warna dan ukuran PNG
 - Unduh PNG dan Web Share API
 - Riwayat lokal dengan penghapusan data
 - PWA installable ke Home Screen Android
-- Tiga layar Android: Buat, Riwayat, dan Profil dengan bottom navigation
+- Empat tab: Buat, Riwayat, Template, dan Profil dengan navigasi bawah
 - Offline cache melalui service worker
 - Halaman Kebijakan Privasi dan Ketentuan
 - GitHub Actions untuk GitHub Pages
@@ -29,7 +29,7 @@ Buka `http://localhost:4173`.
 2. Buka **Settings → Pages** pada repository.
 3. Pilih **GitHub Actions** sebagai Source.
 4. Workflow `.github/workflows/pages.yml` akan deploy otomatis setiap push.
-5. URL default: `https://USERNAME.github.io/REPOSITORY/`.
+5. URL aktif: `https://shopppit1-tech.github.io/qr-maker-app/`.
 
 ## Menjadi aplikasi Play Store (TWA)
 
