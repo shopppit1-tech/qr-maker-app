@@ -62,19 +62,6 @@ https://USERNAME.github.io/REPOSITORY/.well-known/assetlinks.json
 
 Lalu jalankan `bubblewrap install` untuk tes pada perangkat Android. Pastikan link dibuka sebagai TWA tanpa address bar.
 
-## Checklist sebelum Play Store
+## Kesiapan Google Play
 
-- [ ] Uji URL, teks, WiFi, dan email di beberapa perangkat Android.
-- [ ] Uji unduh PNG dan tombol bagikan.
-- [ ] Uji install PWA dan mode offline setelah reload.
-- [ ] Uji tautan kebijakan privasi dan ketentuan.
-- [ ] Siapkan ikon aplikasi 512×512 dan screenshot Android.
-- [ ] Lengkapi Data safety di Play Console secara jujur: versi ini tidak mengirim konten QR ke server dan tidak memakai akun/iklan/analytics.
-- [ ] Tulis deskripsi aplikasi tanpa klaim yang tidak dapat dibuktikan.
-- [ ] Tentukan target audience, rating konten, kategori, dan email kontak support.
-- [ ] Isi URL kebijakan privasi publik.
-- [ ] Buat AAB release, bukan APK debug.
-- [ ] Simpan keystore; jangan hilangkan karena dibutuhkan untuk update.
-- [ ] Ikuti persyaratan testing/review yang ditampilkan Play Console untuk akun kamu.
-
-> Status “siap pakai” berlaku untuk PWA di GitHub Pages. Persetujuan Play Store tetap diputuskan Google dan memerlukan akun, signing, metadata, testing, serta deklarasi kebijakan yang benar.
+Status saat ini, pekerjaan yang masih diperlukan, dan rujukan kebijakan resmi tersedia di [PLAY_STORE_READINESS.md](PLAY_STORE_READINESS.md). Website/PWA yang tayang bukan AAB Android dan belum berarti listing Play Store telah disetujui.

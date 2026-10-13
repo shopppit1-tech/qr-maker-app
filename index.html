@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1769ff">
 <meta name="description" content="QR Maker — buat dan bagikan QR code untuk URL, teks, Wi-Fi, email, kontak, dan lainnya.">
-<link rel="manifest" href="manifest.webmanifest?v=18">
+<link rel="manifest" href="manifest.webmanifest?v=19">
 <link rel="icon" href="icons/icon.svg">
 <title>QR Maker — Cepat, Mudah, Gratis</title>
 <style>
@@ -129,7 +129,43 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 </section>
 </main>
 <section class="panel" id="historyView"><div class="section-head"><h2>Riwayat QR</h2><button class="secondary" style="width:auto;margin:0" id="clearHistory">Hapus riwayat</button></div><div id="historyList" class="empty">Belum ada QR Code yang dibuat.</div></section>
-<section class="panel" id="profileView"><div class="section-head"><h2>Profil & Pengaturan</h2></div><p style="color:var(--muted);line-height:1.7">QR Maker membantu Anda membuat QR Code untuk tautan, teks, WiFi, email, dan kontak. Riwayat tersimpan lokal di sesi browser ini.</p><button class="secondary" onclick="showView('create')">Kembali ke Buat QR</button></section>
+<section class="panel" id="profileView" style="display:none">
+  <div class="section-head"><div><p class="eyebrow">INFO APLIKASI</p><h2 id="profileTitle">Profil & Kebijakan</h2></div><span class="status-badge">Web / PWA</span></div>
+  <div id="profileContent">
+    <p class="profile-lead">QR Maker membantu Anda membuat dan membagikan QR dengan cepat. Berikut informasi tentang aplikasi, privasi, dan pengelolaan data.</p>
+    <div class="profile-app-id"><span class="profile-app-icon">▦</span><span class="profile-app-copy"><strong>QR Maker</strong><small>Cepat · Mudah · Gratis</small></span><span class="profile-badge">PWA</span></div>
+    <section class="profile-block"><h3>Kebijakan & ketentuan</h3><div class="profile-links">
+      <a class="profile-link" href="./privacy.html"><span class="profile-link-icon">▤</span><span class="profile-link-copy"><strong>Kebijakan Privasi</strong><small>Data lokal, riwayat, berbagi, dan penghapusan</small></span><span class="profile-link-arrow">›</span></a>
+      <a class="profile-link" href="./terms.html"><span class="profile-link-icon">✓</span><span class="profile-link-copy"><strong>Ketentuan Penggunaan</strong><small>Tanggung jawab dan penggunaan QR secara aman</small></span><span class="profile-link-arrow">›</span></a>
+    </div></section>
+    <section class="profile-block"><h3>Data & keamanan</h3><ul class="profile-facts">
+      <li>Konten QR diproses di perangkat dan tidak dikirim ke server QR Maker.</li>
+      <li>Riwayat tersimpan di browser perangkat. Kelola atau hapus melalui tab Riwayat.</li>
+      <li>Versi web ini tidak memakai akun, iklan, atau analitik pihak ketiga.</li>
+      <li>Konten hanya dibagikan jika Anda menekan Bagikan. QR yang dibagikan dapat dipindai orang lain.</li>
+    </ul><p class="profile-note" style="margin-top:13px">Hindari membuat atau membagikan QR berisi kata sandi dan informasi rahasia di perangkat bersama atau ruang publik.</p></section>
+    <section class="profile-block"><h3>Dukungan</h3><a class="profile-link" href="https://github.com/shopppit1-tech/qr-maker-app/issues" target="_blank" rel="noopener noreferrer"><span class="profile-link-icon">?</span><span class="profile-link-copy"><strong>Hubungi dukungan QR Maker</strong><small>GitHub Issues · pesan bersifat publik, jangan sertakan data pribadi</small></span><span class="profile-link-arrow">↗</span></a><p class="profile-support-note">Untuk listing Google Play, pengelola tetap perlu menambahkan email dukungan yang aktif.</p></section>
+    <details class="profile-play-checklist"><summary>Persiapan agar dapat diajukan ke Google Play</summary><div class="profile-play-body">
+      <p>Website/PWA ini belum merupakan paket Android dan belum dipublikasikan di Play Store. Persetujuan hanya dapat dinilai Google setelah paket dan deklarasi final ditinjau.</p>
+      <h4>Paket dan listing</h4><ul>
+        <li>Bangun Android App Bundle (AAB) release yang ditandatangani, pilih nama paket unik, dan amankan kunci signing.</li>
+        <li>Lengkapi nama/deskripsi, kategori, ikon dan screenshot, serta email dukungan yang dipantau di listing.</li>
+        <li>Untuk rilis TWA/PWA, verifikasi hubungan domain melalui Digital Asset Links.</li>
+      </ul>
+      <h4>Deklarasi di Play Console</h4><ul>
+        <li>Masukkan URL Kebijakan Privasi dan lengkapi Data safety sesuai paket, permission, dan semua SDK yang benar-benar dikirim.</li>
+        <li>Nyatakan iklan, target usia, rating konten, dan instruksi akses secara akurat. Tidak ada login pada versi web saat ini.</li>
+      </ul>
+      <h4>Persyaratan rilis saat ini</h4><ul>
+        <li>Mulai 31 Agustus 2026, aplikasi baru dan update umum harus menargetkan Android 16 / API 36 atau lebih tinggi.</li>
+        <li>Akun developer personal yang dibuat setelah 13 November 2023 harus memenuhi closed test minimal 12 tester selama 14 hari berturut-turut sebelum meminta akses produksi.</li>
+      </ul>
+      <p>Sumber resmi: <a href="https://support.google.com/googleplay/android-developer/answer/10787469?hl=id" target="_blank" rel="noopener noreferrer">Data safety</a> · <a href="https://support.google.com/googleplay/android-developer/answer/9859455?hl=id" target="_blank" rel="noopener noreferrer">App content</a> · <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=id" target="_blank" rel="noopener noreferrer">Target API</a> · <a href="https://support.google.com/googleplay/android-developer/answer/14151465?hl=id" target="_blank" rel="noopener noreferrer">Closed testing</a>.</p>
+      <p>Ini checklist persiapan, bukan jaminan lolos. Deklarasi harus cocok dengan AAB akhir dan aturan yang berlaku pada akun Anda.</p>
+    </div></details>
+  </div>
+  <div id="templatesIntro" hidden><p>Pilih jenis konten pada halaman Buat untuk memulai. Anda dapat membuat QR untuk URL, teks, Wi-Fi, email, kontak, dan konten lain.</p><button class="secondary-btn" onclick="showView('create')">Pilih jenis konten</button></div>
+</section>
 </div>
 <nav class="bottomnav">
 <button class="navitem active" data-view="create"><span class="sym">⌂</span>Buat</button>
@@ -138,7 +174,7 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 <button class="navitem" data-view="profile"><span class="sym">♙</span>Profil</button>
 </nav>
 <div class="toast" id="toast"></div>
-<script src="assets/qrcode.js?v=18"></script>
+<script src="assets/qrcode.js?v=19"></script>
 <script>
 const fields=document.getElementById('fields'), output=document.getElementById('qrOutput');
 let currentType='url', currentText='', qrInstance=null, historyItems=[];
@@ -214,10 +250,12 @@ function showView(view){
  document.getElementById('createView').style.display=view==='create'?'block':'none';
  document.getElementById('historyView').style.display=view==='history'?'block':'none';
  document.getElementById('profileView').style.display=(view==='profile'||view==='templates')?'block':'none';
- if(view==='templates'){document.querySelector('#profileView h2').textContent='Template QR';document.querySelector('#profileView p').textContent='Pilih jenis konten pada halaman Buat untuk mulai membuat QR Code.'}
- else if(view==='profile'){document.querySelector('#profileView h2').textContent='Profil & Pengaturan'}
+ const templateMode=view==='templates';
+ document.getElementById('profileTitle').textContent=templateMode?'Template QR':'Profil & Kebijakan';
+ document.getElementById('profileContent').hidden=templateMode;
+ document.getElementById('templatesIntro').hidden=!templateMode;
  document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
- if(view==='templates')document.querySelector('.navitem[data-view="templates"]').classList.add('active');
+ if(templateMode)document.querySelector('.navitem[data-view="templates"]').classList.add('active');
 }
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{currentType=b.dataset.type;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));renderFields()}));
 document.querySelectorAll('.navitem').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
