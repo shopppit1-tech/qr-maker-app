@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1769ff">
-<meta name="description" content="QR Maker — buat dan bagikan QR code untuk URL, teks, Wi-Fi, email, kontak, dan lainnya.">
-<link rel="manifest" href="manifest.webmanifest?v=20">
-<link rel="icon" href="icons/icon.svg">
+<meta name="description" content="Buat QR untuk URL, teks, Wi-Fi, email, kontak, dan lainnya. Gratis dan diproses di perangkat.">
+<link rel="manifest" href="./manifest.webmanifest?v=21">
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
 <title>QR Maker — Cepat, Mudah, Gratis</title>
 <style>
 :root{--blue:#0878ff;--purple:#792cff;--ink:#101a36;--muted:#647391;--bg:#f3f7ff;--line:#e3eaf7;--card:#fff}
@@ -41,6 +41,9 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 .bottomnav{position:fixed;z-index:5;bottom:0;left:0;transform:none;width:100%;max-width:none;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));background:#fff;border:1px solid #e6edf8;border-bottom:0;border-radius:22px 22px 0 0;box-shadow:0 -5px 18px #1d376b12}.navitem{border:0;background:transparent;border-radius:17px;padding:10px 3px;color:#75839f;font-weight:650;font-size:12px;display:grid;gap:5px;justify-items:center}.navitem .sym{font-size:23px}.navitem.active{background:#e8f1ff;color:#0874ff}
 #historyView,#profileView{display:none}.history-item{padding:14px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}.history-item:last-child{border:0}.miniqr{width:48px;height:48px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-size:25px}.history-item small{display:block;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}.empty{color:var(--muted);text-align:center;padding:28px 0}
 .toast{position:fixed;top:40px;left:50%;transform:translateX(-50%);background:#13213f;color:white;border-radius:12px;padding:12px 18px;font-size:13px;z-index:10;display:none;box-shadow:0 8px 25px #0002}
+
+#templatesView{display:none}.template-hero{position:relative;overflow:hidden;border-radius:24px;padding:23px;background:linear-gradient(115deg,#087cff,#3e42f5 60%,#812cff);color:#fff;margin-bottom:17px}.template-hero .eyebrow{font-size:12px;letter-spacing:3px;font-weight:800}.template-hero h2{font-size:clamp(25px,5vw,34px);line-height:1.12;max-width:72%;margin:12px 0}.template-hero h2 span{color:#66efff}.template-hero p{font-size:14px;line-height:1.5;max-width:68%;margin:0}.template-art{position:absolute;right:10px;top:40px;width:135px;height:120px;display:flex;align-items:center;justify-content:center}.template-art-card{position:absolute;width:70px;height:96px;background:white;border-radius:12px;box-shadow:0 8px 20px #111b4a45;padding:8px;display:grid;place-items:center}.template-art-card.a{transform:rotate(-15deg) translateX(-25px);color:#e9277d}.template-art-card.b{transform:rotate(14deg) translateX(25px);color:#07976b}.template-art-card.c{z-index:2;width:78px;height:108px;border:3px solid #eaf2ff;color:#111827}.mini-pattern{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;width:100%;aspect-ratio:1}.mini-pattern i{background:currentColor}.template-categories{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-bottom:16px}.template-category{border:1px solid transparent;border-radius:15px;padding:12px 3px;background:#f0f5ff;color:#566786;font-size:12px;font-weight:750;display:flex;flex-direction:column;align-items:center;gap:7px}.template-category .sym{font-size:22px}.template-category.active{background:linear-gradient(135deg,#087cff,#3156ff);color:#fff}.template-search{position:relative;margin-bottom:16px}.template-search input{width:100%;border:0;border-radius:16px;padding:15px 16px 15px 45px;background:#f0f5ff;outline:none}.template-search span{position:absolute;left:15px;top:10px;font-size:23px;color:#627595}.template-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.template-card{position:relative;min-width:0;border:1.5px solid #e8eef8;border-radius:18px;background:#fff;padding:11px 7px 12px;box-shadow:0 7px 18px #233f6c0b;color:#30415f;text-align:center}.template-card.selected{border:2px solid #087cff}.template-card .check{display:none;position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:50%;background:#087cff;color:white;font-size:14px;align-items:center;justify-content:center}.template-card.selected .check{display:flex}.template-preview{width:min(100%,140px);aspect-ratio:1;margin:0 auto 8px;border-radius:11px;display:grid;place-items:center;background:#fff;overflow:hidden}.template-preview svg{width:100%;height:100%}.template-card strong{display:block;font-size:13px}.template-card small{display:block;color:#8290a9;font-size:10px;margin-top:3px}@media(max-width:600px){.template-hero{padding:21px 16px;min-height:188px}.template-hero h2{font-size:27px;max-width:73%}.template-hero p{font-size:12px;max-width:70%}.template-art{right:0;top:39px;transform:scale(.8);transform-origin:right center}.template-categories{grid-template-columns:repeat(3,minmax(0,1fr))}.template-category{min-height:65px}.template-grid{gap:8px}.template-card{padding:9px 5px 10px}.template-card strong{font-size:12px}}
+
 @media(max-width:600px){
 .app{padding:0 12px 112px}
 .topbar{padding:17px 3px 20px;gap:10px}
@@ -84,6 +87,15 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 .navitem .sym{font-size:21px}
 }
 @media(max-width:380px){.hero h1{font-size:24px;max-width:65%}.hero p{font-size:10px}.section-head h2{font-size:17px}.safe{font-size:9px}.tabs{gap:3px}.tab{font-size:9px}.tab .sym{font-size:18px}.result-layout{gap:8px}.action{padding:7px}.action strong{font-size:11px}}
+
+.profile-lead{font-size:14px;color:var(--muted);line-height:1.6;margin:0 0 18px}
+.profile-links{display:grid;gap:10px;margin:18px 0}
+.profile-link{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:12px;color:var(--ink);text-decoration:none;background:#fff;min-height:65px}
+.profile-icon{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border-radius:13px;background:#edf4ff;color:#1769ff;font-size:20px;font-weight:800}
+.profile-link>span:nth-child(2){flex:1;min-width:0}.profile-link strong,.profile-link small{display:block}.profile-link strong{font-size:14px}.profile-link small{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px}.profile-link>b{color:#8291ad;font-size:20px;font-weight:500}
+.profile-note{border-radius:15px;background:#f1f6ff;padding:14px;color:#465a7b;font-size:12px;line-height:1.55}.profile-note p{margin:5px 0 0}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #72aaff;outline-offset:2px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -129,25 +141,18 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 </section>
 </main>
 <section class="panel" id="historyView"><div class="section-head"><h2>Riwayat QR</h2><button class="secondary" style="width:auto;margin:0" id="clearHistory">Hapus riwayat</button></div><div id="historyList" class="empty">Belum ada QR Code yang dibuat.</div></section>
-<section class="panel" id="profileView" style="display:none">
-  <div class="section-head"><div><p class="eyebrow">TENTANG QR MAKER</p><h2 id="profileTitle">Profil</h2></div></div>
-  <div id="profileContent">
-    <p class="profile-lead">Buat QR untuk URL, teks, Wi-Fi, email, kontak, dan lainnya. Simpan atau bagikan sesuai kebutuhan.</p>
-    <div class="profile-app-id"><span class="profile-app-icon">▦</span><span class="profile-app-copy"><strong>QR Maker</strong><small>Cepat · Mudah · Gratis</small></span><span class="profile-badge">PWA</span></div>
-    <section class="profile-block"><h3>Kebijakan & ketentuan</h3><div class="profile-links">
-      <a class="profile-link" href="./privacy.html"><span class="profile-link-icon">▤</span><span class="profile-link-copy"><strong>Kebijakan Privasi</strong><small>Data lokal, riwayat, berbagi, dan penghapusan</small></span><span class="profile-link-arrow">›</span></a>
-      <a class="profile-link" href="./terms.html"><span class="profile-link-icon">✓</span><span class="profile-link-copy"><strong>Ketentuan Penggunaan</strong><small>Tanggung jawab dan penggunaan QR secara aman</small></span><span class="profile-link-arrow">›</span></a>
-    </div></section>
-    <section class="profile-block"><h3>Data & keamanan</h3><ul class="profile-facts">
-      <li>Konten QR diproses di perangkat dan tidak dikirim ke server QR Maker.</li>
-      <li>Riwayat tersimpan di browser perangkat. Kelola atau hapus melalui tab Riwayat.</li>
-      <li>Tidak perlu akun. Aplikasi tidak menampilkan iklan atau memakai pelacak analitik.</li>
-      <li>Konten hanya dibagikan jika Anda menekan Bagikan. QR yang dibagikan dapat dipindai orang lain.</li>
-    </ul><button class="secondary-btn" style="max-width:200px;margin-top:12px" onclick="showView('history')">Kelola riwayat</button><p class="profile-note" style="margin-top:13px">Hindari membuat atau membagikan QR berisi kata sandi dan informasi rahasia di perangkat bersama atau ruang publik.</p></section>
-    <section class="profile-block"><h3>Dukungan</h3><a class="profile-link" href="https://github.com/shopppit1-tech/qr-maker-app/issues" target="_blank" rel="noopener noreferrer"><span class="profile-link-icon">?</span><span class="profile-link-copy"><strong>Hubungi dukungan QR Maker</strong><small>GitHub Issues · pesan bersifat publik, jangan sertakan data pribadi</small></span><span class="profile-link-arrow">↗</span></a><p class="profile-support-note">Untuk menjaga privasi, jangan kirim kata sandi atau isi QR melalui pesan dukungan.</p></section>
+<section class="panel" id="profileView"><div class="section-head"><div><div class="eyebrow" style="color:#1769ff;letter-spacing:2px">TENTANG QR MAKER</div><h2>Profil</h2></div></div>
+<p class="profile-lead">Buat QR untuk URL, teks, Wi-Fi, email, kontak, dan lainnya. Simpan atau bagikan sesuai kebutuhan.</p>
+<div class="profile-links">
+<a class="profile-link" href="./privacy.html"><span class="profile-icon">▤</span><span><strong>Kebijakan Privasi</strong><small>Data, riwayat, dan pilihan berbagi</small></span><b>›</b></a>
+<a class="profile-link" href="./terms.html"><span class="profile-icon">✓</span><span><strong>Ketentuan Penggunaan</strong><small>Gunakan QR dengan aman dan bertanggung jawab</small></span><b>›</b></a>
+<a class="profile-link" href="https://github.com/shopppit1-tech/qr-maker-app/issues" target="_blank" rel="noopener noreferrer"><span class="profile-icon">?</span><span><strong>Dukungan QR Maker</strong><small>Laporkan kendala · jangan sertakan data pribadi</small></span><b>↗</b></a>
 </div>
-  <div id="templatesIntro" hidden><p>Pilih jenis konten pada halaman Buat untuk memulai. Anda dapat membuat QR untuk URL, teks, Wi-Fi, email, kontak, dan konten lain.</p><button class="secondary-btn" onclick="showView('create')">Pilih jenis konten</button></div>
+<div class="profile-note"><strong>Privasi dan data</strong><p>Konten QR diproses di perangkat. Riwayat tersimpan di browser dan dapat dihapus pada tab Riwayat. Tidak perlu akun; aplikasi ini tidak menampilkan iklan atau memakai pelacak analitik. QR yang dibagikan dapat dipindai orang lain.</p></div>
+<button class="secondary" id="manageHistory" type="button">Kelola riwayat QR</button>
 </section>
+<section id="templatesView"><div class="template-hero"><div class="eyebrow">TEMPLATE QR CODE</div><h2>Pilih template <span>sesuai gaya kamu</span></h2><p>Buat QR Code lebih menarik dengan berbagai template siap pakai.</p><div class="template-art" aria-hidden="true"><div class="template-art-card a"><div class="mini-pattern"></div></div><div class="template-art-card b"><div class="mini-pattern"></div></div><div class="template-art-card c"><div class="mini-pattern"></div><small style="background:#087cff;color:white;border-radius:8px;padding:3px 5px;font-size:8px">SCAN ME</small></div></div></div>
+<div class="template-categories"><button class="template-category active" data-filter="Semua"><span class="sym">⊞</span>Semua</button><button class="template-category" data-filter="URL"><span class="sym">↗</span>URL</button><button class="template-category" data-filter="Teks"><span class="sym">T</span>Teks</button><button class="template-category" data-filter="WiFi"><span class="sym">⌁</span>WiFi</button><button class="template-category" data-filter="Email"><span class="sym">✉</span>Email</button><button class="template-category" data-filter="Kontak"><span class="sym">♙</span>Kontak</button></div><div class="template-search"><span>⌕</span><input id="templateSearch" placeholder="Cari template..." aria-label="Cari template"></div><div class="template-grid" id="templateGrid"></div></section>
 </div>
 <nav class="bottomnav">
 <button class="navitem active" data-view="create"><span class="sym">⌂</span>Buat</button>
@@ -156,102 +161,46 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 <button class="navitem" data-view="profile"><span class="sym">♙</span>Profil</button>
 </nav>
 <div class="toast" id="toast"></div>
-<script src="assets/qrcode.js?v=20"></script>
+<script src="./assets/qrcode.js?v=21"></script>
+<script src="./assets/qrcode.js?v=21"></script>
 <script>
-const fields=document.getElementById('fields'), output=document.getElementById('qrOutput');
-let currentType='url', currentText='', qrInstance=null, historyItems=[];
-const templates={
- url:{label:'Masukkan URL',placeholder:'Tempel atau ketik URL Anda',type:'url'},
- text:{label:'Masukkan teks',placeholder:'Tulis pesan atau informasi di sini...',type:'textarea'},
- wifi:{label:'Nama jaringan (SSID)',placeholder:'Nama WiFi',type:'text'},
- email:{label:'Alamat email tujuan',placeholder:'nama@contoh.com',type:'email'},
- contact:{label:'Nama kontak',placeholder:'Nama lengkap',type:'text'},
- other:{label:'Nomor telepon atau data lainnya',placeholder:'+628123456789',type:'text'}
-};
-function renderFields(){
- const t=templates[currentType];
- let html=`<div class="field"><label for="mainInput">${t.label}</label>`;
- if(currentType==='wifi'){
-  html+=`<input id="mainInput" placeholder="${t.placeholder}"><div class="hint">Isi juga kata sandi jika jaringan memakai password.</div><div style="height:12px"></div><label for="wifiPass">Kata sandi WiFi</label><input id="wifiPass" type="text" placeholder="Kata sandi (opsional)"><div style="height:12px"></div><label for="wifiSecurity">Keamanan</label><select id="wifiSecurity"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">Tanpa password</option></select>`;
- }else if(currentType==='textarea'){html+=`<textarea id="mainInput" placeholder="${t.placeholder}"></textarea>`}
- else if(currentType==='email'){html+=`<input id="mainInput" type="email" placeholder="${t.placeholder}"><div style="height:12px"></div><label for="emailSubject">Subjek (opsional)</label><input id="emailSubject" placeholder="Subjek email">`}
- else if(currentType==='contact'){html+=`<input id="mainInput" placeholder="${t.placeholder}"><div style="height:12px"></div><label for="contactPhone">Nomor telepon</label><input id="contactPhone" placeholder="+628123456789"><div style="height:12px"></div><label for="contactEmail">Email (opsional)</label><input id="contactEmail" type="email" placeholder="nama@contoh.com">`}
- else {html+=`<input id="mainInput" type="${t.type}" placeholder="${t.placeholder}">${currentType==='url'?'<div style="position:absolute;right:12px;top:42px;background:#e8edf6;color:#7c8ba7;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;cursor:pointer" onclick="document.getElementById(\'mainInput\').value=\'\'">×</div>':''}`}
- html+='</div>';fields.innerHTML=html;
-}
-function payload(){
- const val=(id)=>document.getElementById(id)?.value.trim()||'';
- const v=val('mainInput');
- if(!v){toast('Silakan isi data terlebih dahulu.');return ''}
- if(currentType==='url'){
-  try{const u=new URL(v);if(!['http:','https:'].includes(u.protocol))throw 0;return u.href}catch(e){toast('Masukkan URL lengkap yang diawali http:// atau https://.');return ''}
- }
- if(currentType==='wifi'){const sec=val('wifiSecurity');return `WIFI:T:${sec};S:${v.replace(/[\\;,"]/g,'\\$&')};P:${val('wifiPass').replace(/[\\;,"]/g,'\\$&')};;`}
- if(currentType==='email')return `mailto:${v}?subject=${encodeURIComponent(val('emailSubject'))}`;
- if(currentType==='contact')return `MECARD:N:${v};TEL:${val('contactPhone')};EMAIL:${val('contactEmail')};;`;
- if(currentType==='other')return v;
- return v;
-}
-function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',2600)}
-function generate(){
- const text=payload();if(!text)return;
- if(typeof qrcode!=='function'){toast('Library QR lokal belum termuat. Muat ulang halaman, lalu coba lagi.');return}
- try{
-  const qr=qrcode(0,'H');qr.addData(text);qr.make();
-  const size=512,pad=36,count=qr.getModuleCount(),cell=(size-pad*2)/count;
-  const canvas=document.createElement('canvas');canvas.width=size;canvas.height=size;canvas.setAttribute('aria-label','QR Code hasil');
-  const ctx=canvas.getContext('2d'),bg=document.getElementById('qrBg').value,ink=document.getElementById('qrColor').value;
-  ctx.fillStyle=bg;ctx.fillRect(0,0,size,size);ctx.fillStyle=ink;
-  for(let row=0;row<count;row++)for(let col=0;col<count;col++)if(qr.isDark(row,col))ctx.fillRect(Math.floor(pad+col*cell),Math.floor(pad+row*cell),Math.ceil(cell),Math.ceil(cell));
-  currentText=text;output.replaceChildren(canvas);
-  historyItems=[{text,type:currentType,time:new Date().toLocaleString('id-ID')},...historyItems.filter(item=>item.text!==text)].slice(0,30);
-  try{localStorage.setItem('qr-maker-history',JSON.stringify(historyItems))}catch(e){}
-  renderHistory();toast('QR Code berhasil dibuat.');
- }catch(error){console.error(error);toast('QR Code gagal dibuat. Periksa data atau coba konten yang lebih singkat.')}
-}
-function getCanvas(){return output.querySelector('canvas')}
-function download(){
- const canvas=getCanvas();if(!canvas){toast('Buat QR Code terlebih dahulu.');return}
- const a=document.createElement('a');a.download='qr-maker.png';a.href=canvas.toDataURL('image/png');a.click();
-}
-async function share(){
- if(!currentText){toast('Buat QR Code terlebih dahulu.');return}
- if(navigator.share){try{await navigator.share({title:'QR Maker',text:currentText})}catch(e){}}
- else if(navigator.clipboard){navigator.clipboard.writeText(currentText).then(()=>toast('Isi QR disalin ke clipboard.')).catch(()=>toast('Tidak dapat membagikan di browser ini.'))}
- else toast('Fitur bagikan tidak didukung browser ini.');
-}
-function renderHistory(){
- const list=document.getElementById('historyList');
- if(!historyItems.length){list.className='empty';list.textContent='Belum ada QR Code yang dibuat.';return}
- list.className='';list.innerHTML=historyItems.map((h,i)=>`<div class="history-item"><div class="miniqr">▦</div><div style="min-width:0;flex:1"><strong>${({url:'URL',text:'Teks',wifi:'WiFi',email:'Email',contact:'Kontak',other:'Lainnya'})[h.type]}</strong><small>${escapeHtml(h.text)}</small><small>${h.time}</small></div><button class="iconbtn" style="width:40px;height:40px" onclick="reuseHistory(${i})">↗</button></div>`).join('');
-}
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function reuseHistory(i){currentType='text';document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.type==='text'));renderFields();document.getElementById('mainInput').value=historyItems[i].text;showView('create');}
-function showView(view){
- document.querySelector('.hero').hidden = view !== 'create';
- document.getElementById('createView').style.display=view==='create'?'block':'none';
- document.getElementById('historyView').style.display=view==='history'?'block':'none';
- document.getElementById('profileView').style.display=(view==='profile'||view==='templates')?'block':'none';
- const templateMode=view==='templates';
- document.getElementById('profileTitle').textContent=templateMode?'Template QR':'Profil';
- document.getElementById('profileContent').hidden=templateMode;
- document.getElementById('templatesIntro').hidden=!templateMode;
- document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
- if(templateMode)document.querySelector('.navitem[data-view="templates"]').classList.add('active');
-}
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{currentType=b.dataset.type;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));renderFields()}));
-document.querySelectorAll('.navitem').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
-document.getElementById('generateBtn').addEventListener('click',generate);
-document.getElementById('downloadBtn').addEventListener('click',download);
-document.getElementById('shareBtn').addEventListener('click',share);
-document.getElementById('customBtn').addEventListener('click',()=>{const c=document.getElementById('customize');c.hidden=!c.hidden});
-document.getElementById('applyColor').addEventListener('click',()=>{if(currentText)generate();else toast('Buat QR Code terlebih dahulu.')});
-document.getElementById('clearBtn').addEventListener('click',()=>{renderFields();output.innerHTML='<div class="qr-placeholder">QR Code Anda akan muncul di sini setelah dibuat.</div>';currentText='';toast('Formulir dibersihkan.')});
-document.getElementById('clearHistory').addEventListener('click',()=>{historyItems=[];try{localStorage.removeItem('qr-maker-history')}catch(e){}renderHistory();toast('Riwayat dihapus.')});
-function makeFakeQr(){const el=document.getElementById('heroQr');for(let i=0;i<121;i++){const x=document.createElement('i');if(Math.random()>.42)x.style.background='#111827';el.appendChild(x)}}
-try{historyItems=JSON.parse(localStorage.getItem('qr-maker-history')||'[]')}catch(e){historyItems=[]}
-renderFields();renderHistory();makeFakeQr();
+'use strict';
+const fields=document.getElementById('fields');
+const output=document.getElementById('qrOutput');
+const typeNames={url:'URL',text:'Teks',wifi:'Wi-Fi',email:'Email',contact:'Kontak',other:'Lainnya'};
+const specs={url:{label:'Masukkan URL',placeholder:'Tempel atau ketik URL Anda',input:'url'},text:{label:'Masukkan teks',placeholder:'Tulis teks Anda',input:'textarea'},wifi:{label:'Nama jaringan (SSID)',placeholder:'Nama jaringan Wi-Fi',input:'text'},email:{label:'Alamat email tujuan',placeholder:'Masukkan alamat email',input:'email'},contact:{label:'Nama kontak',placeholder:'Masukkan nama kontak',input:'text'},other:{label:'Nomor telepon atau data lainnya',placeholder:'Masukkan data Anda',input:'text'}};
+let currentType='url',currentText='',historyItems=loadHistory(),activeTemplate='Default',activeTemplateFilter='Semua';
+const templateData=[{name:'Default',category:'Semua',color:'#101828',style:'normal'},{name:'Bulatan',category:'Semua',color:'#101828',style:'dots'},{name:'Gradasi',category:'URL',color:'#6b2cff',style:'gradient'},{name:'Modern',category:'URL',color:'#087cff',style:'normal'},{name:'Minimalis',category:'Teks',color:'#111827',style:'normal'},{name:'Kartu',category:'URL',color:'#782cff',style:'card'},{name:'Love',category:'Kontak',color:'#f02d79',style:'dots'},{name:'Lingkaran',category:'WiFi',color:'#087b69',style:'dots'},{name:'Warna',category:'Email',color:'#ed247b',style:'warm'},{name:'Neon',category:'URL',color:'#43c9ff',style:'neon'},{name:'Botani',category:'Kontak',color:'#16835d',style:'normal'},{name:'Pop Art',category:'Teks',color:'#111827',style:'pop'}];
+function loadHistory(){try{const x=JSON.parse(localStorage.getItem('qr-maker-history-v2')||'[]');return Array.isArray(x)?x.slice(0,50):[]}catch{return []}}
+function saveHistory(){try{localStorage.setItem('qr-maker-history-v2',JSON.stringify(historyItems.slice(0,50)))}catch{toast('Riwayat tidak dapat disimpan di browser ini.')}}
+function renderFields(){const t=specs[currentType];let html='<div class="field"><label for="mainInput">'+t.label+'</label>';if(currentType==='wifi'){html+='<input id="mainInput" autocomplete="off" placeholder="'+t.placeholder+'"><div class="hint">Isi kata sandi jika jaringan Wi-Fi menggunakannya.</div><div style="height:10px"></div><label for="wifiPass">Kata sandi Wi-Fi</label><input id="wifiPass" type="password" autocomplete="new-password" placeholder="Kata sandi (opsional)"><div style="height:10px"></div><label for="wifiSecurity">Keamanan jaringan</label><select id="wifiSecurity"><option value="WPA">WPA / WPA2</option><option value="WEP">WEP</option><option value="nopass">Tanpa kata sandi</option></select>';}else if(currentType==='text'){html+='<textarea id="mainInput" placeholder="'+t.placeholder+'"></textarea>';}else if(currentType==='email'){html+='<input id="mainInput" type="email" autocomplete="email" placeholder="'+t.placeholder+'"><div style="height:10px"></div><label for="emailSubject">Subjek (opsional)</label><input id="emailSubject" placeholder="Subjek email">';}else if(currentType==='contact'){html+='<input id="mainInput" autocomplete="name" placeholder="'+t.placeholder+'"><div style="height:10px"></div><label for="contactPhone">Nomor telepon (opsional)</label><input id="contactPhone" type="tel" autocomplete="tel" placeholder="Nomor telepon"><div style="height:10px"></div><label for="contactEmail">Email (opsional)</label><input id="contactEmail" type="email" autocomplete="email" placeholder="Alamat email">';}else{html+='<input id="mainInput" type="'+t.input+'" autocomplete="'+(currentType==='url'?'url':'off')+'" placeholder="'+t.placeholder+'">';}html+='</div>';fields.innerHTML=html;}
+function val(id){return document.getElementById(id)?.value.trim()||''}
+function escWifi(s){return s.replace(/[\;,:"]/g,'\$&')}
+function escMecard(s){return s.replace(/[\;,"]/g,'\$&')}
+function payload(){const v=val('mainInput');if(!v){toast('Silakan isi data terlebih dahulu.');return ''}if(currentType==='url'){try{const u=new URL(v);if(!['http:','https:'].includes(u.protocol))throw Error();return u.href}catch{toast('Masukkan URL dengan format yang benar.');return ''}}if(currentType==='wifi'){const sec=val('wifiSecurity');return 'WIFI:T:'+sec+';S:'+escWifi(v)+';P:'+escWifi(val('wifiPass'))+';;'}if(currentType==='email'){if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){toast('Periksa kembali alamat email.');return ''}return 'mailto:'+v+(val('emailSubject')?'?subject='+encodeURIComponent(val('emailSubject')):'')}if(currentType==='contact'){return 'MECARD:N:'+escMecard(v)+';TEL:'+escMecard(val('contactPhone'))+';EMAIL:'+escMecard(val('contactEmail'))+';;'}return v}
+function toast(message){const el=document.getElementById('toast');el.textContent=message;el.style.display='block';clearTimeout(window.qrToastTimer);window.qrToastTimer=setTimeout(()=>el.style.display='none',2600)}
+function paintQr(text){if(typeof window.qrcode!=='function'){toast('Generator QR belum tersedia. Muat ulang halaman saat online.');return false}try{const code=window.qrcode(0,'M');code.addData(text);code.make();const count=code.getModuleCount(),quiet=4,scale=Math.max(1,Math.floor(512/(count+quiet*2))),size=(count+quiet*2)*scale,canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');canvas.width=size;canvas.height=size;ctx.fillStyle=document.getElementById('qrBg').value;ctx.fillRect(0,0,size,size);ctx.fillStyle=document.getElementById('qrColor').value;for(let r=0;r<count;r++)for(let c=0;c<count;c++)if(code.isDark(r,c))ctx.fillRect((c+quiet)*scale,(r+quiet)*scale,scale,scale);canvas.setAttribute('role','img');canvas.setAttribute('aria-label','QR Code untuk '+(typeNames[currentType]||'data'));canvas.className='generated-qr';output.replaceChildren(canvas);return true}catch(e){console.error(e);toast('Data terlalu panjang atau tidak dapat dibuat menjadi QR.');return false}}
+function generate(){const text=payload();if(!text)return;if(!paintQr(text))return;currentText=text;historyItems.unshift({text,type:currentType,time:new Date().toISOString()});historyItems=historyItems.slice(0,50);saveHistory();renderHistory();toast('QR Code berhasil dibuat.')}
+function generateSaved(item){currentText=item.text;currentType=item.type||'other';if(paintQr(currentText)){showView('create');toast('QR dari riwayat ditampilkan.')}}
+function download(){const canvas=output.querySelector('canvas');if(!canvas){toast('Buat QR Code terlebih dahulu.');return}const a=document.createElement('a');a.download='qr-maker.png';a.href=canvas.toDataURL('image/png');a.click()}
+async function share(){if(!currentText){toast('Buat QR Code terlebih dahulu.');return}try{if(navigator.share)await navigator.share({title:'QR Maker',text:currentText});else if(navigator.clipboard){await navigator.clipboard.writeText(currentText);toast('Isi QR disalin ke clipboard.')}else toast('Fitur berbagi tidak tersedia di browser ini.')}catch(e){if(e.name!=='AbortError')toast('Tidak dapat membagikan QR saat ini.')}}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderHistory(){const list=document.getElementById('historyList');if(!historyItems.length){list.className='empty';list.textContent='Belum ada QR Code yang dibuat.';return}list.className='history-items';list.innerHTML=historyItems.map((h,i)=>'<div class="history-item"><div class="miniqr">▦</div><div class="history-copy"><strong>'+escapeHtml(typeNames[h.type]||'QR Code')+'</strong><small>'+escapeHtml(h.text)+'</small><small>'+escapeHtml(new Date(h.time).toLocaleString('id-ID'))+'</small></div><button class="iconbtn history-open" type="button" data-index="'+i+'" aria-label="Tampilkan QR dari riwayat">↗</button></div>').join('');list.querySelectorAll('.history-open').forEach(b=>b.addEventListener('click',()=>generateSaved(historyItems[Number(b.dataset.index)])))}
+function showView(view){const create=view==='create';document.querySelector('.hero').style.display=create?'':'none';document.getElementById('createView').style.display=create?'block':'none';document.getElementById('historyView').style.display=view==='history'?'block':'none';document.getElementById('profileView').style.display=view==='profile'?'block':'none';document.getElementById('templatesView').style.display=view==='templates'?'block':'none';document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='history')renderHistory();if(view==='templates')renderTemplates();window.scrollTo({top:0,behavior:'smooth'})}
+function templateSvg(t){const seed=[...t.name].reduce((a,c)=>a+c.charCodeAt(0),0),color=t.color,bg=t.style==='neon'?'#07162c':t.style==='pop'?'#111827':'#fff';let cells='';for(let y=0;y<21;y++)for(let x=0;x<21;x++){const finder=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);let on;if(finder){const xx=x<7?x:x-14,yy=y<7?y:y-14;on=xx===0||xx===6||yy===0||yy===6||(xx>=2&&xx<=4&&yy>=2&&yy<=4)}else on=((x*7+y*11+seed+x*y)%5<2)||((x+y+seed)%11===0);if(on)cells+='<rect x="'+x+'" y="'+y+'" width="1" height="1" rx="'+(t.style==='dots'?'.45':'.15')+'" fill="'+(t.style==='gradient'?'url(#g)':t.style==='warm'?'url(#w)':t.style==='pop'?'#fff':color)+'"/>'}return '<svg viewBox="0 0 21 21" aria-label="Pratinjau gaya '+escapeHtml(t.name)+'"><defs><linearGradient id="g"><stop stop-color="#782cff"/><stop offset="1" stop-color="#087cff"/></linearGradient><linearGradient id="w"><stop stop-color="#ff8a00"/><stop offset="1" stop-color="#ed247b"/></linearGradient></defs><rect width="21" height="21" rx="1" fill="'+bg+'"/>'+cells+'</svg>'}
+function renderTemplates(){const query=(document.getElementById('templateSearch')?.value||'').toLowerCase(),grid=document.getElementById('templateGrid');const items=templateData.filter(t=>(activeTemplateFilter==='Semua'||t.category===activeTemplateFilter)&&t.name.toLowerCase().includes(query));grid.innerHTML=items.map(t=>'<button class="template-card '+(t.name===activeTemplate?'selected':'')+'" data-name="'+escapeHtml(t.name)+'" aria-pressed="'+(t.name===activeTemplate)+'"><span class="check">✓</span><div class="template-preview">'+templateSvg(t)+'</div><strong>'+escapeHtml(t.name)+'</strong><small>'+escapeHtml(t.category==='Semua'?'Semua konten':t.category)+'</small></button>').join('')||'<div class="empty" style="grid-column:1/-1">Template tidak ditemukan.</div>';grid.querySelectorAll('.template-card').forEach(card=>card.addEventListener('click',()=>{activeTemplate=card.dataset.name;const t=templateData.find(x=>x.name===activeTemplate);document.getElementById('qrColor').value=t.color;renderTemplates();if(currentText)paintQr(currentText);toast('Warna gaya '+activeTemplate+' diterapkan.')}))}
+function initDecorativeQr(){const el=document.getElementById('heroQr');if(!el)return;el.replaceChildren();for(let i=0;i<121;i++){const cell=document.createElement('i');const x=i%11,y=Math.floor(i/11),finder=(x<3&&y<3)||(x>7&&y<3)||(x<3&&y>7),on=finder?((x%8===0||x%8===2||y%8===0||y%8===2)||(x%8===1&&y%8===1)):((x*7+y*11+x*y)%5<2);if(on)cell.style.background='#111827';el.appendChild(cell)}}
+document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>{currentType=button.dataset.type;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===button));renderFields()}));
+document.querySelectorAll('.navitem').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
+document.getElementById('generateBtn').addEventListener('click',generate);document.getElementById('downloadBtn').addEventListener('click',download);document.getElementById('shareBtn').addEventListener('click',share);
+document.getElementById('customBtn').addEventListener('click',()=>{const panel=document.getElementById('customize');panel.hidden=!panel.hidden});document.getElementById('applyColor').addEventListener('click',()=>{if(currentText){paintQr(currentText);toast('Tampilan QR diperbarui.')}else toast('Buat QR Code terlebih dahulu.')});
+document.getElementById('clearBtn').addEventListener('click',()=>{currentText='';renderFields();output.innerHTML='<div class="qr-placeholder">QR Code Anda akan muncul di sini setelah dibuat.</div>';toast('Formulir dibersihkan.')});
+document.getElementById('clearHistory').addEventListener('click',()=>{historyItems=[];saveHistory();renderHistory();toast('Riwayat QR dihapus.')});document.getElementById('manageHistory').addEventListener('click',()=>showView('history'));
+document.querySelectorAll('.template-category').forEach(button=>button.addEventListener('click',()=>{activeTemplateFilter=button.dataset.filter;document.querySelectorAll('.template-category').forEach(x=>x.classList.toggle('active',x===button));renderTemplates()}));document.getElementById('templateSearch').addEventListener('input',renderTemplates);
+const themeColors={url:'#0878ff',text:'#3156ff',wifi:'#087b69',email:'#ed247b',contact:'#16835d',other:'#782cff'};document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>{document.documentElement.style.setProperty('--blue',themeColors[button.dataset.type]||'#0878ff')}));
+renderFields();renderHistory();initDecorativeQr();renderTemplates();
+if('serviceWorker' in navigator){let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded)return;reloaded=true;location.reload()});window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{}))}
 </script>
-<script>if('serviceWorker' in navigator){let didReload=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(didReload)return;didReload=true;window.location.reload()});window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>registration.update()).catch(()=>{}))}</script>
+</div>
 </body>
 </html>

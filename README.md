@@ -1,6 +1,6 @@
 # QR Maker
 
-PWA QR Maker dengan desain mobile yang diunggah pemilik repo. Membuat QR code URL, teks, WiFi, email, kontak, dan data lainnya; proses dilakukan lokal di perangkat.
+PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code URL, teks, WiFi, email, kontak, dan data lainnya; proses dilakukan lokal di perangkat.
 
 ## Fitur yang sudah tersedia
 
