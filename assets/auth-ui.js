@@ -42,6 +42,10 @@
   }
 
   function showUser(user) {
+    const generateButton = $('generateBtn');
+    const loginNotice = $('loginRequiredNotice');
+    if (generateButton && mode !== 'recovery') generateButton.innerHTML = user ? '✦ &nbsp; Buat QR Code &nbsp; →' : '🔒 &nbsp; Masuk untuk Membuat QR &nbsp; →';
+    if (loginNotice) loginNotice.hidden = Boolean(user);
     if (!user || mode === 'recovery') {
       $('authSignedIn').hidden = true;
       $('authSignedOut').hidden = false;
