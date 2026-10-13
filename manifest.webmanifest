@@ -1,1 +1,25 @@
-{"name":"QR Maker — Cepat, Mudah, Gratis","short_name":"QR Maker","description":"Buat QR code dengan cepat untuk tautan, teks, Wi-Fi, email, kontak, dan lainnya.","start_url":"./","display":"standalone","background_color":"#f5f7fc","theme_color":"#1769f5","lang":"id-ID","orientation":"portrait-primary","icons":[{"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "QR Maker — Cepat, Mudah, Gratis",
+  "short_name": "QR Maker",
+  "description": "Buat QR code dengan cepat untuk tautan, teks, Wi-Fi, email, kontak, dan lainnya.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fc",
+  "theme_color": "#1769f5",
+  "lang": "id-ID",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
