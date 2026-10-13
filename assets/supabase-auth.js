@@ -11,6 +11,7 @@
   const client = sdk.createClient(config.url, config.anonKey, {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
   });
+  const historyColumns = 'id, content, type, created_at';
   window.qrAuth = {
     available: true,
     getSession: () => client.auth.getSession(),
@@ -25,6 +26,17 @@
       redirectTo: window.location.origin + window.location.pathname
     }),
     updatePassword: (password) => client.auth.updateUser({ password }),
-    signOut: () => client.auth.signOut()
+    signOut: () => client.auth.signOut(),
+    loadHistory: () => client.from('qr_history')
+      .select(historyColumns).order('created_at', { ascending: false }).limit(50),
+    saveHistory: ({ text, type }) => client.from('qr_history')
+      .insert({ content: text, type }).select(historyColumns).single(),
+    deleteHistory: async () => {
+      const { data, error } = await client.auth.getSession();
+      if (error) return { data: null, error };
+      const userId = data?.session?.user?.id;
+      if (!userId) return { data: null, error: new Error('Login diperlukan.') };
+      return client.from('qr_history').delete().eq('user_id', userId);
+    }
   };
 })();

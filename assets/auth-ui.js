@@ -23,6 +23,17 @@
     target.hidden = !text;
   }
 
+  function friendlyAuthError(error) {
+    const text = String(error?.message || '').toLowerCase();
+    if (text.includes('invalid login credentials') || text.includes('invalid credentials')) return 'Email atau kata sandi salah. Jika belum mendaftar, pilih “Belum punya akun? Daftar”; jika lupa kata sandi, gunakan tautan reset.';
+    if (text.includes('email not confirmed')) return 'Email belum diverifikasi. Buka tautan verifikasi dari email Anda, lalu masuk kembali.';
+    if (text.includes('user already registered') || text.includes('already registered')) return 'Email sudah terdaftar. Silakan masuk atau reset kata sandi.';
+    if (text.includes('redirect') && (text.includes('allow') || text.includes('url'))) return 'URL verifikasi belum diizinkan di Supabase Auth → URL Configuration.';
+    if (text.includes('password') && (text.includes('short') || text.includes('least'))) return 'Kata sandi terlalu pendek. Gunakan kata sandi yang memenuhi aturan Supabase.';
+    if (text.includes('fetch') || text.includes('network')) return 'Tidak dapat tersambung ke Supabase. Periksa koneksi dan coba lagi.';
+    return error?.message || 'Autentikasi gagal. Coba lagi.';
+  }
+
   function setMode(next) {
     mode = next;
     const recovery = mode === 'recovery';
@@ -96,7 +107,7 @@
         notify('Berhasil masuk.');
       }
     } catch (error) {
-      notify(error?.message || 'Autentikasi gagal. Coba lagi.', true);
+      notify(friendlyAuthError(error), true);
     } finally {
       submit.disabled = false;
     }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#246bfe">
-  <meta name="description" content="Kebijakan privasi QR Maker: pemrosesan QR lokal, penyimpanan riwayat, dan pilihan berbagi.">
+  <meta name="description" content="Kebijakan privasi QR Maker: pemrosesan QR lokal, riwayat akun Supabase, dan pilihan berbagi.">
   <link rel="stylesheet" href="styles.css?v=22">
   <title>Kebijakan Privasi — QR Maker</title>
 </head>
@@ -20,25 +20,25 @@
       <p>Kebijakan ini menjelaskan cara QR Maker menangani data ketika Anda membuat dan mengelola kode QR.</p>
 
       <h2>Data yang Anda masukkan</h2>
-      <p>URL, teks, kata sandi Wi-Fi, alamat email, nomor telepon, dan konten QR lain diproses di perangkat Anda menggunakan kode yang dimuat bersama aplikasi. Aplikasi tidak mengirim konten tersebut ke server QR Maker.</p>
+      <p>QR dirender di perangkat Anda. Saat Anda membuat QR dalam keadaan masuk, isi QR dan jenisnya dikirim melalui HTTPS ke proyek Supabase untuk disimpan sebagai riwayat akun. Konten tersebut tidak dikirim ke GitHub Pages untuk proses pembuatan QR. Jangan simpan data rahasia yang tidak ingin berada di riwayat akun.</p>
 
       <h2>Riwayat dan penghapusan</h2>
-      <p>Jika fitur riwayat digunakan, entri QR disimpan di penyimpanan lokal browser pada perangkat Anda. Riwayat dapat dihapus melalui tab <strong>Riwayat</strong> dan tombol <strong>Hapus riwayat</strong>. Menghapus data situs dari pengaturan browser juga menghapus salinan lokal tersebut. File PNG yang sudah diunduh perlu dihapus terpisah dari perangkat.</p>
+      <p>Setiap QR yang berhasil dibuat disimpan pada tabel <code>public.qr_history</code> di proyek Supabase dan diikat ke akun yang sedang masuk. Kebijakan Row Level Security (RLS) membatasi akses tiap akun hanya ke baris miliknya. Aplikasi menampilkan hingga 50 entri terbaru. Setelah keluar, riwayat dan QR yang sedang tampil dibersihkan dari layar; masuk kembali memuat riwayat akun tersebut. Tombol <strong>Hapus riwayat</strong> menghapus riwayat akun dari database setelah konfirmasi. File PNG yang sudah diunduh harus dihapus terpisah dari perangkat.</p>
 
       <h2>Berbagi dan pemindaian QR</h2>
       <p>Konten hanya diteruskan ke aplikasi lain jika Anda memilih tombol <strong>Bagikan</strong> dan memilih tujuan berbagi. Setelah diterima, penanganan data mengikuti kebijakan aplikasi penerima. Siapa pun yang dapat memindai QR yang Anda bagikan dapat membaca isinya; jangan publikasikan QR yang berisi kata sandi atau informasi rahasia.</p>
 
       <h2>Permintaan jaringan, analitik, dan iklan</h2>
-      <p>Situs di-host melalui GitHub Pages. Saat halaman dibuka, browser meminta file situs melalui HTTPS; permintaan teknis tersebut ditangani oleh penyedia hosting sesuai kebijakannya. Stylesheet juga dapat memuat font dari Google Fonts; Google dapat memproses permintaan font sesuai kebijakan privasinya. Konten QR yang Anda ketik tidak disertakan dalam permintaan hosting atau font. Login email diperlukan sebelum membuat QR dan diproses oleh Supabase Auth melalui HTTPS. Alamat email, kredensial autentikasi yang dikelola penyedia, serta status sesi diproses oleh proyek Supabase yang dikonfigurasi. Supabase dapat mengirim email verifikasi atau pemulihan kata sandi. QR Maker tidak mengirim konten QR atau riwayat lokal ke Supabase. Versi web ini tidak menggunakan iklan atau layanan analitik.</p>
+      <p>Situs di-host melalui GitHub Pages. Saat halaman dibuka, browser meminta file situs melalui HTTPS; permintaan teknis tersebut ditangani oleh penyedia hosting sesuai kebijakannya. Stylesheet juga dapat memuat font dari Google Fonts; Google dapat memproses permintaan font sesuai kebijakan privasinya. Isi QR tidak disertakan dalam permintaan hosting atau font. Saat QR dibuat, isi dan jenis QR dikirim melalui HTTPS ke Supabase untuk riwayat akun. Login email dan status sesi juga diproses oleh Supabase Auth; Supabase dapat mengirim email verifikasi atau pemulihan kata sandi. QR Maker tidak mengirim isi QR ke GitHub Pages. Versi web ini tidak menggunakan iklan atau layanan analitik.</p>
 
       <h2>Akun email</h2>
-      <p>Akun email diperlukan untuk membuat QR. Saat memilih daftar atau masuk, email dan kata sandi dikirim secara aman ke layanan autentikasi Supabase untuk pembuatan sesi atau verifikasi. Jangan gunakan kata sandi yang sama dengan layanan sensitif lain. Untuk meminta reset, gunakan tautan “Lupa kata sandi?” di Profil. QR Maker tidak menyimpan kata sandi dan tidak mengunggah konten QR ke Supabase.</p>
+      <p>Akun email diperlukan untuk membuat QR. Email dan kata sandi dikirim melalui HTTPS ke Supabase Auth untuk pembuatan sesi atau verifikasi; QR Maker tidak menyimpan kata sandi. Untuk reset, gunakan tautan “Lupa kata sandi?” di Profil. Isi QR dan jenisnya tersimpan di Supabase sebagai riwayat akun.</p>
 
       <h2>Keamanan dan penyimpanan</h2>
-      <p>Riwayat berada di penyimpanan browser pada perangkat Anda dan dapat diakses oleh orang yang memiliki akses ke perangkat atau profil browser tersebut. Hindari memasukkan informasi yang tidak ingin Anda simpan atau bagikan, terutama pada perangkat bersama.</p>
+      <p>Riwayat tersimpan di proyek Supabase dan hanya akun pemilik yang dapat membacanya melalui RLS. Keluar membersihkan salinan riwayat dan QR dari tampilan aplikasi pada perangkat tersebut; gunakan tombol hapus riwayat untuk menghapus data akun secara permanen. Hindari menyimpan informasi yang tidak ingin disimpan di cloud.</p>
 
       <h2>Kontak</h2>
-      <p>Panduan bantuan penggunaan tersedia di tab Profil. Saat ini aplikasi belum menyediakan kanal kontak dukungan langsung. Riwayat QR dapat dihapus dari tab Riwayat di browser yang digunakan.</p>
+      <p>Panduan bantuan penggunaan tersedia di tab Profil. Saat ini aplikasi belum menyediakan kanal kontak dukungan langsung. Riwayat QR akun dapat dihapus dari tab Riwayat; penghapusan berlaku untuk akun di semua perangkat.</p>
 
       <h2>Pembaruan kebijakan</h2>
       <p>Kebijakan ini akan diperbarui jika cara kerja aplikasi atau kewajiban yang berlaku berubah. Periksa tanggal pembaruan di bagian atas halaman.</p>
