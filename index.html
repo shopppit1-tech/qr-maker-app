@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1769ff">
 <meta name="description" content="Buat QR untuk URL, teks, Wi-Fi, email, kontak, dan lainnya. Gratis dan diproses di perangkat.">
-<link rel="manifest" href="./manifest.webmanifest?v=26">
+<link rel="manifest" href="./manifest.webmanifest?v=27">
 <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
 <title>QR Maker — Cepat, Mudah, Gratis</title>
 <style>
@@ -125,9 +125,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
     <button class="tab" data-type="other"><span class="sym">⊞</span>Lainnya</button>
   </div>
   <div id="fields"></div>
-  <button class="primary" id="generateBtn">✦ &nbsp; Buat QR Code &nbsp; →</button>
+  <button class="primary" id="generateBtn">🔒 &nbsp; Masuk untuk Membuat QR &nbsp; →</button>
   <button class="secondary" id="clearBtn">♲ &nbsp; Bersihkan</button>
-  <div class="privacy">🛡 <span><b>Privasi Anda penting.</b> Data diproses di perangkat ini. Jangan masukkan informasi sensitif ke QR publik.</span></div>
+  <div class="privacy" id="loginRequiredNotice">🔐 <span><b>Login diperlukan.</b> Masuk dengan email sebelum membuat QR. Konten QR tetap diproses di perangkat ini.</span></div>
 </section>
 <section class="panel">
   <div class="section-head"><h2>3. Hasil QR Code</h2><span class="safe" style="color:#1769ff;background:#eaf2ff">▣ Siap dipindai</span></div>
@@ -144,14 +144,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 </main>
 <section class="panel" id="historyView"><div class="section-head"><h2>Riwayat QR</h2><button class="secondary" style="width:auto;margin:0" id="clearHistory">Hapus riwayat</button></div><div id="historyList" class="empty">Belum ada QR Code yang dibuat.</div></section>
 <section class="panel" id="profileView"><div class="section-head"><div><div class="eyebrow" style="color:#1769ff;letter-spacing:2px">TENTANG QR MAKER</div><h2>Profil</h2></div></div>
-<section class="panel" id="authPanel" aria-labelledby="authTitle"><div class="section-head"><div><div class="eyebrow" style="color:#1769ff;letter-spacing:2px">AKUN QR MAKER</div><h2 id="authTitle">Masuk dengan email</h2></div></div><p class="auth-subtitle">Login email disediakan melalui Supabase. Anda tetap dapat membuat QR tanpa akun.</p><div id="authUnavailable" class="auth-status" hidden>Fitur login belum tersedia saat ini. Pembuatan QR tetap dapat digunakan.</div><div id="authSignedOut"><form id="authForm" autocomplete="on"><div class="field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="email" required placeholder="nama@contoh.com"></div><div class="field" id="authPasswordField"><label for="authPassword">Kata sandi</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Minimal 6 karakter"></div><button class="primary" id="authSubmit" type="submit">Masuk</button><div class="auth-inline"><button class="secondary" id="authSwitch" type="button">Belum punya akun? Daftar</button><button class="secondary" id="authForgot" type="button">Lupa kata sandi?</button></div><button class="secondary" id="authBack" type="button" hidden>Kembali ke login</button><p class="auth-message" id="authMessage" aria-live="polite" hidden></p></form></div><div id="authSignedIn" hidden><div class="auth-account"><span class="auth-avatar" aria-hidden="true">@</span><span class="auth-account-copy"><strong id="authUserEmail"></strong><small id="authVerified"></small></span></div><p class="auth-status">QR Anda dan riwayatnya tetap tersimpan di browser ini; saat ini belum disinkronkan ke akun.</p><button class="secondary" id="authSignOut" type="button">Keluar</button><p class="auth-message" id="authMessageSignedIn" aria-live="polite" hidden></p></div></section>
+<section class="panel" id="authPanel" aria-labelledby="authTitle"><div class="section-head"><div><div class="eyebrow" style="color:#1769ff;letter-spacing:2px">AKUN QR MAKER</div><h2 id="authTitle">Masuk dengan email</h2></div></div><p class="auth-subtitle">Masuk atau daftar dengan email terlebih dahulu untuk membuat QR. Konten dan riwayat QR tetap tersimpan lokal.</p><div id="authUnavailable" class="auth-status" hidden>Fitur login belum tersedia saat ini. Pembuatan QR tetap dapat digunakan.</div><div id="authSignedOut"><form id="authForm" autocomplete="on"><div class="field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="email" required placeholder="nama@contoh.com"></div><div class="field" id="authPasswordField"><label for="authPassword">Kata sandi</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Minimal 6 karakter"></div><button class="primary" id="authSubmit" type="submit">Masuk</button><div class="auth-inline"><button class="secondary" id="authSwitch" type="button">Belum punya akun? Daftar</button><button class="secondary" id="authForgot" type="button">Lupa kata sandi?</button></div><button class="secondary" id="authBack" type="button" hidden>Kembali ke login</button><p class="auth-message" id="authMessage" aria-live="polite" hidden></p></form></div><div id="authSignedIn" hidden><div class="auth-account"><span class="auth-avatar" aria-hidden="true">@</span><span class="auth-account-copy"><strong id="authUserEmail"></strong><small id="authVerified"></small></span></div><p class="auth-status">QR Anda dan riwayatnya tetap tersimpan di browser ini; saat ini belum disinkronkan ke akun.</p><button class="secondary" id="authSignOut" type="button">Keluar</button><p class="auth-message" id="authMessageSignedIn" aria-live="polite" hidden></p></div></section>
 <div class="profile-version"><strong>Versi aplikasi 1.1.0</strong><small>Website / PWA · APK Android belum tersedia</small></div>
 <div class="profile-links">
 <a class="profile-link" href="./privacy.html"><span class="profile-icon">▤</span><span><strong>Kebijakan Privasi</strong><small>Data, riwayat, dan pilihan berbagi</small></span><b>›</b></a>
 <a class="profile-link" href="./terms.html"><span class="profile-icon">✓</span><span><strong>Ketentuan Penggunaan</strong><small>Gunakan QR dengan aman dan bertanggung jawab</small></span><b>›</b></a>
 <details class="profile-help"><summary class="profile-link"><span class="profile-icon">?</span><span><strong>Bantuan penggunaan</strong><small>Panduan singkat langsung di aplikasi</small></span><b>⌄</b></summary><div class="profile-help-body"><p><strong>Membuat QR:</strong> Pilih jenis konten, isi data, lalu tekan “Buat QR Code”.</p><p><strong>Menyimpan atau mengirim:</strong> Gunakan tombol “Unduh PNG” atau “Bagikan”.</p><p><strong>Mengelola riwayat:</strong> Buka tab Riwayat untuk menampilkan kembali atau menghapus QR yang tersimpan di browser.</p><p class="help-contact-note">Kanal dukungan langsung belum tersedia. Jangan kirim data rahasia melalui QR publik.</p></div></details>
 </div>
-<div class="profile-note"><strong>Privasi dan data</strong><p>Konten QR diproses di perangkat dan riwayat tetap tersimpan di browser. Login email bersifat opsional dan menggunakan Supabase Auth; data QR tidak dikirim atau disinkronkan ke akun. Jangan publikasikan QR yang berisi data rahasia.</p></div>
+<div class="profile-note"><strong>Privasi dan data</strong><p>Konten QR diproses di perangkat dan riwayat tetap tersimpan di browser. Login email melalui Supabase Auth wajib untuk membuat QR; data QR tidak dikirim atau disinkronkan ke akun. Jangan publikasikan QR yang berisi data rahasia.</p></div>
 <button class="secondary" id="manageHistory" type="button">Kelola riwayat QR</button>
 </section>
 <section id="templatesView"><div class="template-hero"><div class="eyebrow">TEMPLATE QR CODE</div><h2>Pilih template <span>sesuai gaya kamu</span></h2><p>Buat QR Code lebih menarik dengan berbagai template siap pakai.</p><div class="template-art" aria-hidden="true"><div class="template-art-card a"><div class="mini-pattern"></div></div><div class="template-art-card b"><div class="mini-pattern"></div></div><div class="template-art-card c"><div class="mini-pattern"></div><small style="background:#087cff;color:white;border-radius:8px;padding:3px 5px;font-size:8px">SCAN ME</small></div></div></div>
@@ -164,10 +164,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 <button class="navitem" data-view="profile"><span class="sym">♙</span>Profil</button>
 </nav>
 <div class="toast" id="toast"></div>
-<script src="./assets/qrcode.js?v=26"></script>
+<script src="./assets/qrcode.js?v=27"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="./supabase-config.js?v=26"></script>
-<script src="./assets/supabase-auth.js?v=26"></script>
+<script src="./supabase-config.js?v=27"></script>
+<script src="./assets/supabase-auth.js?v=27"></script>
 <script>
 'use strict';
 const fields=document.getElementById('fields');
@@ -185,8 +185,9 @@ function escMecard(s){return s.replace(/[\;,"]/g,'\$&')}
 function payload(){const v=val('mainInput');if(!v){toast('Silakan isi data terlebih dahulu.');return ''}if(currentType==='url'){try{const u=new URL(v);if(!['http:','https:'].includes(u.protocol))throw Error();return u.href}catch{toast('Masukkan URL dengan format yang benar.');return ''}}if(currentType==='wifi'){const sec=val('wifiSecurity');return 'WIFI:T:'+sec+';S:'+escWifi(v)+';P:'+escWifi(val('wifiPass'))+';;'}if(currentType==='email'){if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){toast('Periksa kembali alamat email.');return ''}return 'mailto:'+v+(val('emailSubject')?'?subject='+encodeURIComponent(val('emailSubject')):'')}if(currentType==='contact'){return 'MECARD:N:'+escMecard(v)+';TEL:'+escMecard(val('contactPhone'))+';EMAIL:'+escMecard(val('contactEmail'))+';;'}return v}
 function toast(message){const el=document.getElementById('toast');el.textContent=message;el.style.display='block';clearTimeout(window.qrToastTimer);window.qrToastTimer=setTimeout(()=>el.style.display='none',2600)}
 function paintQr(text){if(typeof window.qrcode!=='function'){toast('Generator QR belum tersedia. Muat ulang halaman saat online.');return false}try{const code=window.qrcode(0,'M');code.addData(text);code.make();const count=code.getModuleCount(),quiet=4,scale=Math.max(1,Math.floor(512/(count+quiet*2))),size=(count+quiet*2)*scale,canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');canvas.width=size;canvas.height=size;ctx.fillStyle=document.getElementById('qrBg').value;ctx.fillRect(0,0,size,size);ctx.fillStyle=document.getElementById('qrColor').value;for(let r=0;r<count;r++)for(let c=0;c<count;c++)if(code.isDark(r,c))ctx.fillRect((c+quiet)*scale,(r+quiet)*scale,scale,scale);canvas.setAttribute('role','img');canvas.setAttribute('aria-label','QR Code untuk '+(typeNames[currentType]||'data'));canvas.className='generated-qr';output.replaceChildren(canvas);return true}catch(e){console.error(e);toast('Data terlalu panjang atau tidak dapat dibuat menjadi QR.');return false}}
-function generate(){const text=payload();if(!text)return;if(!paintQr(text))return;currentText=text;historyItems.unshift({text,type:currentType,time:new Date().toISOString()});historyItems=historyItems.slice(0,50);saveHistory();renderHistory();toast('QR Code berhasil dibuat.')}
-function generateSaved(item){currentText=item.text;currentType=item.type||'other';if(paintQr(currentText)){showView('create');toast('QR dari riwayat ditampilkan.')}}
+async function ensureLoginForQr(){try{const auth=window.qrAuth;if(!auth||!auth.available){showView('profile');toast('Login email belum tersedia. Coba muat ulang halaman.');return false}const result=await auth.getSession();if(result.error||!result.data?.session){showView('profile');toast('Masuk dengan email terlebih dahulu untuk membuat QR.');setTimeout(()=>document.getElementById('authEmail')?.focus(),350);return false}return true}catch(error){showView('profile');toast('Periksa koneksi lalu masuk sebelum membuat QR.');return false}}
+async function generate(){if(!await ensureLoginForQr())return;const text=payload();if(!text)return;if(!paintQr(text))return;currentText=text;historyItems.unshift({text,type:currentType,time:new Date().toISOString()});historyItems=historyItems.slice(0,50);saveHistory();renderHistory();toast('QR Code berhasil dibuat.')}
+async function generateSaved(item){if(!await ensureLoginForQr())return;currentText=item.text;currentType=item.type||'other';if(paintQr(currentText)){showView('create');toast('QR dari riwayat ditampilkan.')}}
 function download(){const canvas=output.querySelector('canvas');if(!canvas){toast('Buat QR Code terlebih dahulu.');return}const a=document.createElement('a');a.download='qr-maker.png';a.href=canvas.toDataURL('image/png');a.click()}
 async function share(){if(!currentText){toast('Buat QR Code terlebih dahulu.');return}try{if(navigator.share)await navigator.share({title:'QR Maker',text:currentText});else if(navigator.clipboard){await navigator.clipboard.writeText(currentText);toast('Isi QR disalin ke clipboard.')}else toast('Fitur berbagi tidak tersedia di browser ini.')}catch(e){if(e.name!=='AbortError')toast('Tidak dapat membagikan QR saat ini.')}}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -206,7 +207,7 @@ const themeColors={url:'#0878ff',text:'#3156ff',wifi:'#087b69',email:'#ed247b',c
 renderFields();renderHistory();initDecorativeQr();renderTemplates();
 if('serviceWorker' in navigator){let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded)return;reloaded=true;location.reload()});window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{}))}
 </script>
-<script src="./assets/auth-ui.js?v=26"></script>
+<script src="./assets/auth-ui.js?v=27"></script>
 </div>
 </body>
 </html>

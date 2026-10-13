@@ -9,7 +9,7 @@ PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code 
 - Pilihan warna dan ukuran PNG
 - Unduh PNG dan Web Share API
 - Riwayat lokal dengan penghapusan data
-- Login email opsional (daftar, masuk, reset kata sandi, keluar) melalui Supabase Auth; QR tetap diproses lokal
+- Login email (daftar, masuk, reset kata sandi, keluar) melalui Supabase Auth diwajibkan sebelum QR dibuat; data QR tetap lokal
 - PWA installable ke Home Screen Android
 - Empat tab: Buat, Riwayat, Template, dan Profil dengan navigasi bawah
 - Offline cache melalui service worker
@@ -18,7 +18,7 @@ PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code 
 
 ## Login email dan Supabase
 
-Frontend menggunakan `supabase-config.js` berisi URL proyek dan **publishable key** (aman untuk aplikasi browser). Jangan pernah mengganti key tersebut dengan `service_role` atau `sb_secret_`. Kebijakan RLS wajib diaktifkan sebelum menambahkan akses ke tabel atau data pengguna. Saat ini login hanya mengelola identitas/sesi; QR dan riwayat tetap lokal dan tidak tersinkron ke akun. Tambahkan redirect yang diizinkan di Supabase Auth: `https://shopppit1-tech.github.io/qr-maker-app/` untuk Pages dan `http://localhost:4173/` untuk pengujian lokal (atau domain preview Anda).
+Frontend menggunakan `supabase-config.js` berisi URL proyek dan **publishable key** (aman untuk aplikasi browser). Jangan pernah mengganti key tersebut dengan `service_role` atau `sb_secret_`. Kebijakan RLS wajib diaktifkan sebelum menambahkan akses ke tabel atau data pengguna. Login diperlukan untuk membuat QR dan hanya mengelola identitas/sesi; QR serta riwayat tetap lokal dan tidak tersinkron ke akun. Tambahkan redirect yang diizinkan di Supabase Auth: `https://shopppit1-tech.github.io/qr-maker-app/` untuk Pages dan `http://localhost:4173/` untuk pengujian lokal (atau domain preview Anda).
 
 ### Skrip demo API
 
