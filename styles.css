@@ -7,3 +7,39 @@ footer{border-top:1px solid var(--line);max-width:1160px;margin:auto;padding:24p
 /* Touch-friendly mobile behavior: content may move, navigation stays fixed */
 @media(max-width:760px){html,body{overflow:auto;touch-action:pan-y}.app-main{overflow-y:auto;overflow-x:hidden}.screen{overflow-y:auto;overflow-x:hidden;touch-action:pan-y}.screen-buat{padding-bottom:92px}.bottom-nav{pointer-events:auto;touch-action:manipulation}.nav-item,.type-tab,button,a{touch-action:manipulation}}
 @media(max-width:760px){.hero{height:auto;min-height:142px;padding-top:12px;padding-bottom:14px;margin-bottom:0}.hero-copy{max-width:345px;line-height:1.35}.workspace{margin-top:0}.panel{overflow:visible}.form-panel,.preview-panel{height:auto;min-height:0}}
+
+/* Profil, kebijakan, dan kesiapan rilis */
+.legal-page{max-width:760px;margin:0 auto;line-height:1.72;color:#26324b}
+.legal-page h1{line-height:1.2;margin:8px 0 12px}
+.legal-page h2{font-size:18px;line-height:1.35;margin:25px 0 7px;color:#17233d}
+.legal-page p{color:#596579}
+#profileView{margin-bottom:24px}
+.profile-lead{color:var(--muted);line-height:1.65;margin:0 0 20px}
+.profile-app-id{display:flex;align-items:center;gap:13px;padding:15px;border-radius:18px;background:linear-gradient(120deg,#eff5ff,#f5f1ff);margin-bottom:20px}
+.profile-app-icon{width:52px;height:52px;display:grid;place-items:center;flex:0 0 52px;border-radius:16px;background:linear-gradient(145deg,#1477f8,#713cf6);color:#fff;font-size:25px;font-weight:800;box-shadow:0 8px 18px rgba(36,107,254,.22)}
+.profile-app-copy{display:grid;gap:3px;min-width:0}.profile-app-copy strong{font-size:17px;color:#17233d}.profile-app-copy small{font-size:12px;color:#6b7690}
+.profile-badge{margin-left:auto;padding:7px 10px;border-radius:999px;background:#e8fff3;color:#07824e;font-size:11px;font-weight:800;white-space:nowrap}
+.profile-block{margin-top:19px}.profile-block h3{font-size:16px;margin:0 0 10px;color:#17233d}
+.profile-links{display:grid;gap:9px}
+.profile-link{min-height:62px;display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #e8edf5;border-radius:15px;text-decoration:none;color:#17233d;background:#fff;transition:transform .16s ease,border-color .16s ease}
+.profile-link:hover{transform:translateY(-1px);border-color:#b7ccff}
+.profile-link-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eff4ff;color:#246bfe;font-size:19px;font-weight:700;flex:0 0 38px}
+.profile-link-copy{display:grid;gap:3px;flex:1}.profile-link-copy strong{font-size:14px}.profile-link-copy small{font-size:12px;color:#778198;line-height:1.45}.profile-link-arrow{color:#8994a8;font-size:20px}
+.profile-facts{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.profile-facts li{position:relative;padding-left:26px;color:#4f5d74;line-height:1.55;font-size:13px}
+.profile-facts li:before{content:"✓";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#e9fbf2;color:#07824e;font-size:12px;font-weight:800}
+.profile-note{padding:14px 15px;border-radius:15px;background:#f3f7ff;border:1px solid #e1eaff;color:#4e5c75;font-size:12px;line-height:1.6}
+.profile-play-checklist{margin-top:20px;border:1px solid #e7ebf3;border-radius:16px;background:#fbfcff;overflow:hidden}
+.profile-play-checklist summary{cursor:pointer;padding:15px 16px;font-weight:750;color:#17233d;list-style:none}
+.profile-play-checklist summary::-webkit-details-marker{display:none}
+.profile-play-checklist summary:after{content:"＋";float:right;color:#246bfe;font-size:18px}
+.profile-play-checklist[open] summary:after{content:"−"}
+.profile-play-body{padding:0 16px 16px;color:#596579;font-size:12px;line-height:1.62}
+.profile-play-body h4{margin:13px 0 6px;color:#17233d;font-size:13px}
+.profile-play-body ul{margin:6px 0;padding-left:20px}.profile-play-body li{margin:5px 0}
+.profile-play-body a{color:#246bfe}
+.profile-support-note{font-size:12px;line-height:1.55;color:#778198;margin:9px 0 0}
+#templatesIntro{padding:15px 0 4px;color:var(--muted);line-height:1.65}
+#profileContent[hidden],#templatesIntro[hidden]{display:none!important}
+.shell{padding-bottom:150px}
+@media(max-width:760px){.legal-page{padding:20px!important}.legal-page h1{font-size:26px}.legal-page h2{font-size:17px}.profile-app-id{padding:13px}.profile-block{margin-top:17px}.profile-link{min-height:60px;padding:11px 12px}.profile-play-checklist summary{padding:14px}.profile-play-body{padding:0 14px 14px}}
