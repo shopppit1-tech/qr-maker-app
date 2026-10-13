@@ -1,6 +1,6 @@
 # QR Maker
 
-PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code URL, teks, WiFi, email, kontak, dan data lainnya; proses dilakukan lokal di perangkat.
+PWA QR Maker dengan desain mobile. QR code URL, teks, WiFi, email, kontak, dan data lainnya dirender lokal; setelah login, riwayatnya disimpan per akun di Supabase.
 
 ## Fitur yang sudah tersedia
 
@@ -8,8 +8,8 @@ PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code 
 - Preview QR real-time setelah submit
 - Pilihan warna dan ukuran PNG
 - Unduh PNG dan Web Share API
-- Riwayat lokal dengan penghapusan data
-- Login email (daftar, masuk, reset kata sandi, keluar) melalui Supabase Auth diwajibkan sebelum QR dibuat; data QR tetap lokal
+- Riwayat QR tersimpan per akun di Supabase, hanya dapat diakses pemilik melalui RLS, dan bisa dihapus dari seluruh perangkat
+- Login email melalui Supabase Auth diwajibkan sebelum QR dibuat; isi/jenis QR disimpan sebagai riwayat akun, tampilan riwayat dibersihkan saat logout
 - PWA installable ke Home Screen Android
 - Empat tab: Buat, Riwayat, Template, dan Profil dengan navigasi bawah
 - Offline cache melalui service worker
@@ -18,7 +18,7 @@ PWA QR Maker dengan desain mobile terbaru pilihan pemilik repo. Membuat QR code 
 
 ## Login email dan Supabase
 
-Frontend menggunakan `supabase-config.js` berisi URL proyek dan **publishable key** (aman untuk aplikasi browser). Jangan pernah mengganti key tersebut dengan `service_role` atau `sb_secret_`. Kebijakan RLS wajib diaktifkan sebelum menambahkan akses ke tabel atau data pengguna. Login diperlukan untuk membuat QR dan hanya mengelola identitas/sesi; QR serta riwayat tetap lokal dan tidak tersinkron ke akun. Tambahkan redirect yang diizinkan di Supabase Auth: `https://shopppit1-tech.github.io/qr-maker-app/` untuk Pages dan `http://localhost:4173/` untuk pengujian lokal (atau domain preview Anda).
+Frontend menggunakan `supabase-config.js` berisi URL proyek dan **publishable key** (aman untuk aplikasi browser). Jangan pernah mengganti key dengan `service_role` atau `sb_secret_`. Sebelum memakai fitur riwayat akun, jalankan SQL di [`supabase/migrations/20261013000000_qr_history.sql`](supabase/migrations/20261013000000_qr_history.sql) melalui Supabase Dashboard → SQL Editor. Skema mengaktifkan RLS dengan akses baca/tambah/hapus hanya untuk `auth.uid()` pemilik baris. Login diperlukan sebelum QR dibuat. QR dirender lokal; konten dan jenisnya dikirim ke Supabase untuk disimpan di riwayat akun. Saat logout, tampilan riwayat dan QR yang terbuka dibersihkan. Riwayat lokal lama tidak diimpor otomatis. Tambahkan redirect yang diizinkan di Supabase Auth: `https://shopppit1-tech.github.io/qr-maker-app/` dan `http://localhost:4173/` untuk pengujian lokal.
 
 ### Skrip demo API
 
