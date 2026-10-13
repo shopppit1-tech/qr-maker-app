@@ -89,3 +89,21 @@
   .hero h1{font-size:21px}
   .type-option{min-height:56px;font-size:9px}
 }
+@media(max-width:760px){
+  .bottom-nav{
+    left:0;
+    right:0;
+    bottom:0;
+    transform:none;
+    width:100%;
+    max-width:none;
+    min-height:calc(70px + env(safe-area-inset-bottom));
+    padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+    border:0;
+    border-top:1px solid #e5eaf2;
+    border-radius:0;
+    box-shadow:none;
+    backdrop-filter:none;
+    background:#fff;
+  }
+}
