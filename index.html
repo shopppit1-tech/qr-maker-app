@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1769ff">
 <meta name="description" content="QR Maker — buat dan bagikan QR code untuk URL, teks, Wi-Fi, email, kontak, dan lainnya.">
-<link rel="manifest" href="manifest.webmanifest?v=16">
+<link rel="manifest" href="manifest.webmanifest?v=17">
 <link rel="icon" href="icons/icon.svg">
 <title>QR Maker — Cepat, Mudah, Gratis</title>
 <style>
@@ -138,7 +138,7 @@ label{display:block;font-weight:750;font-size:14px;margin:0 0 10px}.field{positi
 <button class="navitem" data-view="profile"><span class="sym">♙</span>Profil</button>
 </nav>
 <div class="toast" id="toast"></div>
-<script src="assets/qrcode.js?v=16"></script>
+<script src="assets/qrcode.js?v=17"></script>
 <script>
 const fields=document.getElementById('fields'), output=document.getElementById('qrOutput');
 let currentType='url', currentText='', qrInstance=null, historyItems=[];
@@ -210,6 +210,7 @@ function renderHistory(){
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function reuseHistory(i){currentType='text';document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.type==='text'));renderFields();document.getElementById('mainInput').value=historyItems[i].text;showView('create');}
 function showView(view){
+ document.querySelector('.hero').hidden = view !== 'create';
  document.getElementById('createView').style.display=view==='create'?'block':'none';
  document.getElementById('historyView').style.display=view==='history'?'block':'none';
  document.getElementById('profileView').style.display=(view==='profile'||view==='templates')?'block':'none';
